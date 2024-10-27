@@ -5,18 +5,152 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Guida completa all'ecosistema blockchain Ergo per principianti e intermedi. Scopri le funzionalità avanzate per la DeFi, la sicurezza blockchain, e come configurare un wallet Ergo sicuro. Approfondisci il token ERG, gli smart contract e il mining sostenibile su Ergo.">
   <title>Ergopedia</title>
-  <!-- Styles and Scripts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    /* Stili Base */
+    body {
+      font-family: Arial, sans-serif;
+      color: #2c2c2c;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background Image */
+    body.light-mode {
+      background-image: url("img/background.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    body.dark-mode {
+      background-image: url("img/background.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #e0e0e0;
+    }
+
+    /* Contenitori Arancioni Semitrasparenti */
+    .bg-overlay {
+      background-color: rgba(255, 140, 0, 0.85);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      border-radius: 10px;
+      color: #1a1a1a;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .bg-overlay:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .dark-mode .bg-overlay {
+      background-color: rgba(60, 60, 60, 0.9);
+      color: #e0e0e0;
+    }
+
+    /* Header Sezioni */
+    .section-header {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+    }
+
+    .dark-mode .section-header {
+      color: #ffffff;
+    }
+
+    /* Bottoni di Approfondimento */
+    .btn-learn-more {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #fff;
+      background-color: #ff8c00;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-learn-more:hover {
+      background-color: #ff7a00;
+      transform: scale(1.05);
+    }
+
+    /* Griglia per le sezioni */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      flex-grow: 1;
+    }
+
+    .grid-item {
+      background-color: rgba(255, 140, 0, 0.85);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .grid-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer ancorato ai piedi della pagina */
+    footer {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      padding: 1rem;
+      text-align: center;
+      margin-top: auto;
+      width: 100%;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
-    <!-- Navbar Content -->
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="wallet.html">Wallet</a></li>
+          <li class="nav-item"><a class="nav-link" href="token.html">Token ERG</a></li>
+          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Contratti Smart</a></li>
+          <li class="nav-item"><a class="nav-link" href="mining.html">Mining</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <button class="btn btn-secondary" id="themeToggle">Toggle Theme</button>
+    </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero-section text-center text-white" style="background: url('img/background.webp') center/cover no-repeat; padding: 4rem 2rem;">
-    <!-- Hero Content -->
+    <div class="container bg-dark bg-opacity-75 p-4 rounded">
+      <h1 class="display-4">Benvenuti su Ergopedia</h1>
+      <p class="lead">La guida completa per esplorare l'ecosistema blockchain di Ergo</p>
+      <a href="#intro" class="btn btn-primary btn-lg mt-3">Scopri di più</a>
+    </div>
   </section>
 
   <!-- Griglia delle Sezioni -->
@@ -49,7 +183,47 @@
         <a href="token.html" class="btn btn-learn-more">Scopri di più</a>
       </div>
     </div>
-    <!-- Additional Sections -->
+    <div class="grid-item" onclick="expandSection(this)">
+      <div class="content">
+        <h2 class="section-header mb-4">SicurezzaIt appears the response was cut off. Here's the continuation of the HTML for the "ErgOne" section:
+
+```html
+    </div>
+    <div class="grid-item" onclick="expandSection(this)">
+      <div class="content">
+        <h2 class="section-header mb-4">Sicurezza nelle Criptovalute</h2>
+        <p class="lead">Impara le migliori pratiche per proteggere i tuoi fondi e mantenere le tue criptovalute al sicuro.</p>
+        <a href="security.html" class="btn btn-learn-more">Scopri di più</a>
+      </div>
+    </div>
+    <div class="grid-item" onclick="expandSection(this)">
+      <div class="content">
+        <h2 class="section-header mb-4">Configurare un Wallet Ergo</h2>
+        <p class="lead">Esplora le opzioni di wallet su Ergo e le migliori pratiche di sicurezza.</p>
+        <a href="wallet.html" class="btn btn-learn-more">Scopri di più</a>
+      </div>
+    </div>
+    <div class="grid-item" onclick="expandSection(this)">
+      <div class="content">
+        <h2 class="section-header mb-4">NFT e Arte Digitale</h2>
+        <p class="lead">Approfondisci il fenomeno degli NFT e scopri come stanno rivoluzionando il mondo dell'arte digitale.</p>
+        <a href="nft.html" class="btn btn-learn-more">Scopri di più</a>
+      </div>
+    </div>
+    <div class="grid-item" onclick="expandSection(this)">
+      <div class="content">
+        <h2 class="section-header mb-4">Gli Smart Contract su Ergo</h2>
+        <p class="lead">ErgoScript consente la creazione di contratti sicuri per applicazioni DeFi avanzate.</p>
+        <a href="smart-contracts.html" class="btn btn-learn-more">Scopri di più</a>
+      </div>
+    </div>
+    <div class="grid-item" onclick="expandSection(this)">
+      <div class="content">
+        <h2 class="section-header mb-4">Mining su Ergo: Accessibilità e Efficienza</h2>
+        <p class="lead">Scopri l'algoritmo Autolykos v2, progettato per un mining sostenibile su Ergo.</p>
+        <a href="mining.html" class="btn btn-learn-more">Scopri di più</a>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -57,6 +231,30 @@
     <p>&copy; 2023 Powered By Ergo Platform Italian Ecosystem</p>
   </footer>
 
-  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
+  <script>
+    AOS.init();
+
+    function expandSection(element) {
+      document.querySelectorAll('.grid-item').forEach(item => {
+        if (item !== element) {
+          item.classList.remove('expanded');
+        }
+      });
+      element.classList.toggle('expanded');
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const body = document.body;
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+      }
+    });
+  </script>
 </body>
 </html>
