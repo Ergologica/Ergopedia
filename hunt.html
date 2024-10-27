@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Caccia al tesoro nell'ecosistema blockchain di Ergo: scopri Sigmaverse, approfondisci la DeFi e la sicurezza blockchain. Ogni livello esplora tematiche diverse per espandere la tua conoscenza su Ergo.">
+  <title>Ergopedia - Caccia al Tesoro</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    /* Stili Base */
+    body {
+      font-family: Arial, sans-serif;
+      color: #2c2c2c;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background Image */
+    body.light-mode {
+      background-image: url("img/background.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    body.dark-mode {
+      background-image: url("img/background.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #e0e0e0;
+    }
+
+    /* Container Centrale per la Caccia al Tesoro */
+    .treasure-hunt-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 3rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 800px;
+      margin: 2rem auto;
+      transition: all 0.5s ease;
+    }
+
+    .dark-mode .treasure-hunt-container {
+      background-color: rgba(60, 60, 60, 0.95);
+      color: #e0e0e0;
+    }
+
+    /* Header Livelli */
+    .level-header {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff8c00;
+      margin-bottom: 1.5rem;
+    }
+
+    .dark-mode .level-header {
+      color: #ffa500;
+    }
+
+    /* Bottone Avanzamento */
+    .btn-next-level {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: #fff;
+      background-color: #ff8c00;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-next-level:hover {
+      background-color: #ff7a00;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="wallet.html">Wallet</a></li>
+          <li class="nav-item"><a class="nav-link" href="token.html">Token ERG</a></li>
+          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Contratti Smart</a></li>
+          <li class="nav-item"><a class="nav-link" href="mining.html">Mining</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <button class="btn btn-secondary" id="themeToggle">Toggle Theme</button>
+    </div>
+  </nav>
+
+  <!-- Container Centrale per la Caccia al Tesoro -->
+  <div class="treasure-hunt-container" id="treasureHuntContainer">
+    <h1 class="level-header">Livello 1: Introduzione a Sigmaverse</h1>
+    <p>Benvenuto nel primo livello della caccia al tesoro di Ergo! Sigmaverse &egrave; la porta d'ingresso per esplorare l'universo di Ergo, dove ogni dApp e progetto contribuisce alla crescita dell'ecosistema. La tua missione per questo livello &egrave; comprendere come Sigmaverse connette vari progetti e piattaforme all'interno della blockchain di Ergo. Per maggiori informazioni, visita <a href="https://sigmaverse.io" target="_blank">Sigmaverse</a>.</p>
+    <button class="btn-next-level" onclick="submitTransactionAndAdvanceLevel(2, 'Livello 2: Approfondimento sulla DeFi su Ergo')">Prossimo Livello</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="p-3 bg-dark text-white text-center">
+    <p>&copy; 2023 Powered By Ergo Platform Italian Ecosystem</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
+  <script>
+    AOS.init();
+
+    const levels = [
+      "Introduzione a Sigmaverse",
+      "Approfondimento sulla DeFi su Ergo",
+      "Sicurezza e Privacy su Ergo",
+      "Mining su Ergo",
+      "Wallet Ergo: Configurazione e Sicurezza",
+      "Smart Contracts e ErgoScript",
+      "NFT e Arte Digitale su Ergo",
+      "Piattaforme DeFi su Sigmaverse",
+      "Interoperabilità e Cross-Chain",
+      "Livello Finale: Sostenibilità e Futuro di Ergo"
+    ];
+
+    let currentLevel = 1;
+
+    function submitTransactionAndAdvanceLevel(nextLevel, levelTitle) {
+      // Simula l'invio della transazione ErgoScript (da implementare con backend)
+      console.log(`Invio transazione per il passaggio al livello ${nextLevel}...`);
+      
+      // Verifica se la transazione è andata a buon fine
+      if (simulateTransaction()) {
+        advanceToLevel(nextLevel);
+      } else {
+        alert("Errore nella transazione. Riprova.");
+      }
+    }
+
+    function simulateTransaction() {
+      // Simula l'esito di una transazione
+      return true;
+    }
+
+    function advanceToLevel(level) {
+      currentLevel = level;
+      if (currentLevel <= levels.length) {
+        const container = document.getElementById('treasureHuntContainer');
+        container.innerHTML = `
+          <h1 class="level-header">Livello ${currentLevel}: ${levels[currentLevel - 1]}</h1>
+          <p>In questo livello, esplorerai il tema: ${levels[currentLevel - 1]}. Visita <a href='https://ergodocs.com' target='_blank'>ErgoDocs</a> per approfondire le funzionalit&agrave; e la sicurezza delle dApp su Ergo e capirne il contributo alla blockchain.</p>
+          <button class="btn-next-level" onclick="submitTransactionAndAdvanceLevel(${currentLevel + 1}, 'Livello ${currentLevel + 1}: ${levels[currentLevel]}')">Prossimo Livello</button>
+        `;
+
+        // Controlla se il giocatore ha raggiunto il livello finale
+        if (currentLevel === 10) {
+          alert("Congratulazioni! Hai completato la caccia al tesoro e hai vinto la tua spesa più 0.5 ERG!");
+        }
+      }
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const body = document.body;
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+      }
+    });
+  </script>
+</body>
+</html>
