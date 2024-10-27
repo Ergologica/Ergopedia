@@ -111,7 +111,7 @@
   <div class="treasure-hunt-container" id="treasureHuntContainer">
     <h1 class="level-header">Livello 1: Introduzione a Sigmaverse</h1>
     <p>Benvenuto nel primo livello della caccia al tesoro di Ergo! Sigmaverse &egrave; la porta d'ingresso per esplorare l'universo di Ergo, dove ogni dApp e progetto contribuisce alla crescita dell'ecosistema. La tua missione per questo livello &egrave; comprendere come Sigmaverse connette vari progetti e piattaforme all'interno della blockchain di Ergo. Per maggiori informazioni, visita <a href="https://sigmaverse.io" target="_blank">Sigmaverse</a>.</p>
-    <button class="btn-next-level" onclick="submitTransactionAndAdvanceLevel(2, 'Livello 2: Approfondimento sulla DeFi su Ergo')">Prossimo Livello</button>
+    <button class="btn-next-level" onclick="executeSmartContract(currentLevel)">Prossimo Livello</button>
   </div>
 
   <!-- Footer -->
@@ -139,50 +139,71 @@
 
     let currentLevel = 1;
 
-    function submitTransactionAndAdvanceLevel(nextLevel, levelTitle) {
-      // Simula l'invio della transazione ErgoScript (da implementare con backend)
-      console.log(`Invio transazione per il passaggio al livello ${nextLevel}...`);
-      
-      // Verifica se la transazione è andata a buon fine
-      if (simulateTransaction()) {
-        advanceToLevel(nextLevel);
-      } else {
-        alert("Errore nella transazione. Riprova.");
+    async function executeSmartContract(taskCount) {
+      try {
+        const payload = {
+          address: "<Bob's Address Base58>",
+          taskCount: taskCount,
+          taskCost: 0.01 * Math.pow(2, Math.floor(taskCount / 10))
+        };
+        await sendErgoTransaction(payload);
+      } catch (error) {
+        console.error("Errore durante l'esecuzione del contratto", error);
+        alert("Errore durante l'esecuzione del contratto. Riprova.");
       }
     }
 
-    function simulateTransaction() {
-      // Simula l'esito di una transazione
-      return true;
-    }
+    const unlockWallet = async () => {
+      const response = await fetch('http://127.0.0.1:9053/wallet/unlock', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'api_key': '<YOUR_API_KEY>'
+        },
+        body: JSON.stringify({ pass: '<YOUR_WALLET_PASSWORD>' })
+      });
+      if (response.ok) {
+        console.log("Wallet unlocked successfully");
+      } else {
+        console.error("Error unlocking wallet");
+      }
+    };
 
-    function advanceToLevel(level) {
-      currentLevel = level;
-      if (currentLevel <= levels.length) {
-        const container = document.getElementById('treasureHuntContainer');
-        container.innerHTML = `
-          <h1 class="level-header">Livello ${currentLevel}: ${levels[currentLevel - 1]}</h1>
-          <p>In questo livello, esplorerai il tema: ${levels[currentLevel - 1]}. Visita <a href='https://ergodocs.com' target='_blank'>ErgoDocs</a> per approfondire le funzionalit&agrave; e la sicurezza delle dApp su Ergo e capirne il contributo alla blockchain.</p>
-          <button class="btn-next-level" onclick="submitTransactionAndAdvanceLevel(${currentLevel + 1}, 'Livello ${currentLevel + 1}: ${levels[currentLevel]}')">Prossimo Livello</button>
-        `;
+    async function sendErgoTransaction(payload) {
+      try {
+        await unlockWallet(); // Sblocca il wallet prima di inviare la transazione
 
-        // Controlla se il giocatore ha raggiunto il livello finale
-        if (currentLevel === 10) {
-          alert("Congratulazioni! Hai completato la caccia al tesoro e hai vinto la tua spesa più 0.5 ERG!");
+        const response = await fetch('http://127.0.0.1:9053/transactions/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'api_key': '<YOUR_API_KEY>'
+          },
+          body: JSON.stringify({
+            requests: [
+              {
+                address: payload.address,
+                value: payload.taskCost * 1e9, // Converti ERG in nanoERG
+                assets: []
+              }
+            ],
+            fee: 1000000 // 0.001 ERG come fee per la transazione
+          })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          console.log("Transazione inviata con successo", result);
+          alert("Transazione completata con successo e livello avanzato");
+        } else {
+          console.error("Errore durante l'invio della transazione", result);
+          alert("Errore durante l'invio della transazione. Riprova.");
         }
+      } catch (error) {
+        console.error("Errore durante l'esecuzione del contratto", error);
+        alert("Errore durante l'esecuzione del contratto. Riprova.");
       }
     }
 
-    document.getElementById('themeToggle').addEventListener('click', function() {
-      const body = document.body;
-      if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-      } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-      }
-    });
-  </script>
-</body>
-</html>
+    function submitTransactionAndAdvanceLevel(nextLevel, levelTitle) {
+      console.log(`Invio transazione
