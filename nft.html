@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NFT e Arte Digitale: approfondisci il fenomeno degli NFT e scopri come stanno rivoluzionando il mondo dell'arte digitale.">
+  <title>NFT e Arte Digitale - Ergopedia</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    /* Stili Base */
+    body {
+      font-family: Arial, sans-serif;
+      color: #2c2c2c;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background Image */
+    body.light-mode {
+      background-image: url("img/background.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    body.dark-mode {
+      background-image: url("img/background.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #e0e0e0;
+    }
+
+    /* Footer ancorato ai piedi della pagina */
+    footer {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      padding: 1rem;
+      text-align: center;
+      margin-top: auto;
+      width: 100%;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="wallet.html">Wallet</a></li>
+          <li class="nav-item"><a class="nav-link" href="token.html">Token ERG</a></li>
+          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Contratti Smart</a></li>
+          <li class="nav-item"><a class="nav-link" href="mining.html">Mining</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <button class="btn btn-secondary" id="themeToggle">Toggle Theme</button>
+    </div>
+  </nav>
+
+  <!-- Contenuto principale -->
+  <div class="container p-5">
+    <div class="bg-overlay">
+      <h1>NFT e Arte Digitale</h1>
+      <p>Gli NFT (Non-Fungible Tokens) stanno rivoluzionando il mondo dell'arte digitale, offrendo agli artisti un nuovo modo di autenticare, vendere e distribuire le loro opere. Gli NFT sono certificati digitali basati su blockchain, che garantiscono l'unicità e la proprietà di un'opera d'arte.</p>
+      <p>In questa sezione esploreremo cosa sono gli NFT, come stanno cambiando il panorama dell'arte e come tu, come artista o collezionista, puoi partecipare a questa nuova frontiera dell'arte digitale.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="p-3 bg-dark text-white text-center">
+    <p>&copy; 2023 Ergo Platform Ecosystem</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
+  <script>
+    AOS.init();
+
+    // Theme Toggle Functionality
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const body = document.body;
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+      }
+    });
+  </script>
+</body>
+</html>

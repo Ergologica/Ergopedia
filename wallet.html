@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Configurare un Wallet Ergo: scopri le opzioni di wallet su Ergo e le migliori pratiche di sicurezza.">
+  <title>Configurare un Wallet Ergo - Ergopedia</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    /* Stili Base */
+    body {
+      font-family: Arial, sans-serif;
+      color: #2c2c2c;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background Image */
+    body.light-mode {
+      background-image: url("img/background.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    body.dark-mode {
+      background-image: url("img/background.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #e0e0e0;
+    }
+
+    /* Footer ancorato ai piedi della pagina */
+    footer {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      padding: 1rem;
+      text-align: center;
+      margin-top: auto;
+      width: 100%;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="wallet.html">Wallet</a></li>
+          <li class="nav-item"><a class="nav-link" href="token.html">Token ERG</a></li>
+          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Contratti Smart</a></li>
+          <li class="nav-item"><a class="nav-link" href="mining.html">Mining</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <button class="btn btn-secondary" id="themeToggle">Toggle Theme</button>
+    </div>
+  </nav>
+
+  <!-- Contenuto principale -->
+  <div class="container p-5">
+    <div class="bg-overlay">
+      <h1>Configurare un Wallet Ergo</h1>
+      <p>Esplora le opzioni di wallet su Ergo e impara le migliori pratiche per proteggere i tuoi fondi in modo sicuro. I wallet sono strumenti essenziali per gestire le tue criptovalute, offrendo sicurezza e controllo completo delle tue transazioni e del tuo saldo.</p>
+      <p>Di seguito sono descritte alcune delle opzioni di wallet più utilizzate per l'ecosistema Ergo, comprese le modalità di configurazione e i consigli su come proteggere al meglio le tue chiavi private.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="p-3 bg-dark text-white text-center">
+    <p>&copy; 2023 Powered By Ergo Platform Italian Ecosystem</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
+  <script>
+    AOS.init();
+
+    // Theme Toggle Functionality
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const body = document.body;
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+      }
+    });
+  </script>
+</body>
+</html>
