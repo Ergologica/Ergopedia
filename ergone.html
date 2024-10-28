@@ -14,32 +14,65 @@
       font-family: Arial, sans-serif;
       color: #2c2c2c;
       background-color: #f8f9fa;
-      margin: 0;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
     }
-    .bg-primary, footer {
-      background-color: #1e1e1e !important;
+
+    /* Background Image */
+    body.light-mode {
+      background-image: url("img/background.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
     }
-    .text-highlight {
-      color: #ff6600;
+
+    body.dark-mode {
+      background-image: url("img/background.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #e0e0e0;
     }
-    /* Stili Responsivi */
-    @media (max-width: 768px) {
-      .hero-section, .about-section, .services-section, .cta-section {
-        text-align: center;
-      }
+
+    /* Footer ancorato ai piedi della pagina */
+    footer {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      padding: 1rem;
+      text-align: center;
+      margin-top: auto;
+      width: 100%;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Stile per l'immagine del titolo */
+    .title-img {
+      height: 60px;
+      margin-right: 15px;
+    }
+
+    /* Stile per il contenuto principale per migliorare il contrasto */
+    .main-content {
+      background-color: rgba(255, 140, 0, 1);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .bg-overlay {
+      background-color: rgba(255, 140, 0, 1);
+      padding: 2rem;
+      border-radius: 8px;
     }
   </style>
 </head>
-<body>
+<body class="light-mode">
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="img/ergo_logo.png" alt="Logo Ergo" height="30"> Ergo Platform Italia
+        <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -49,67 +82,34 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="wallet.html">Wallet</a></li>
           <li class="nav-item"><a class="nav-link" href="token.html">Token ERG</a></li>
-          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Contratti Smart</a></li>
+          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Smart Contracts</a></li>
           <li class="nav-item"><a class="nav-link" href="mining.html">Mining</a></li>
           <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
         </ul>
       </div>
+      <button class="btn btn-secondary" id="themeToggle">Toggle Theme</button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section py-5 text-center bg-dark text-white" data-aos="fade-up">
-    <div class="container">
-      <h1 class="display-4">ErgOne: La Soluzione All-in-One sulla Blockchain Ergo</h1>
-      <p class="lead">Una piattaforma innovativa che supporta creatori, artisti e influencer, promuovendo una decentralizzazione autentica e meritocratica.</p>
-      <a href="#about" class="btn btn-primary mt-3">Scopri di più</a>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about-section py-5" data-aos="fade-right">
-    <div class="container">
-      <h2 class="text-center text-highlight">Perché ErgOne è Rivoluzionario</h2>
-      <p>ErgOne è un progetto all’avanguardia sulla blockchain di Ergo, pensato per trasformare il marketing decentralizzato. La piattaforma elimina l'influenza di autorità centralizzate e algoritmi opachi, creando un ecosistema in cui la reputazione e il valore si basano su contributi reali e verificabili da parte della community.</p>
-      <p>Il sistema di governance della piattaforma assegna potere decisionale ai membri in base alla quantità di token ErgOne posseduti, garantendo trasparenza e accesso equo alle decisioni strategiche. I progetti e i contenuti supportati sono scelti direttamente dalla community, promuovendo uno spazio inclusivo e democratico.</p>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="services-section py-5 bg-light" data-aos="fade-left">
-    <div class="container">
-      <h2 class="text-center text-highlight">Caratteristiche Distintive di ErgOne</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <h3>Sistema di Proof-of-Commitment</h3>
-          <p>Gli utenti possono "dimostrare il proprio impegno" (Proof-of-Commitment) attraverso partecipazione attiva e supporto alla community, ottenendo ricompense proporzionate al loro contributo. Questo approccio meritocratico minimizza l'influenza di algoritmi centralizzati, premiando i membri in base al valore effettivo delle loro azioni.</p>
-        </div>
-        <div class="col-md-6">
-          <h3>Promozione Decentralizzata dei Contenuti</h3>
-          <p>ErgOne consente ai creatori di ottenere visibilità basata sulla partecipazione attiva della community, anziché su algoritmi. Questo crea un ambiente inclusivo in cui emergono contenuti effettivamente sostenuti, beneficiando sia i creatori emergenti che gli utenti finali in cerca di contenuti autentici e meritocratici.</p>
-        </div>
+  <!-- Contenuto principale -->
+  <div class="container p-5">
+    <div class="main-content">
+      <div class="bg-overlay d-flex align-items-center">
+        <img src="img/sigmaoctonew.png" alt="Sigma Logo" class="title-img">
+        <h1>ErgOne: La Soluzione All-in-One sulla Blockchain Ergo</h1>
       </div>
+      <p>ErgOne è un progetto innovativo che si sviluppa sulla blockchain di Ergo, configurandosi come una piattaforma "all-in-one" pensata per rivoluzionare il modello di marketing in ambito decentralizzato. L’obiettivo principale di ErgOne è creare un'infrastruttura libera e decentralizzata, progettata per sostenere e valorizzare creatori di contenuti, artisti e influencer senza che vi sia dipendenza da autorità centrali o algoritmi decisionali imposti dall'alto.</p>
+      <p>La filosofia di ErgOne si basa sul principio della partecipazione comunitaria e sull’attribuzione del valore e della reputazione in base al contributo diretto dei membri all'ecosistema di Ergo. A differenza dei modelli centralizzati, dove la visibilità è spesso determinata da algoritmi opachi, ErgOne consente alla comunità di decidere quali contenuti e progetti sostenere. In questo contesto, gli utenti ottengono un maggiore potere di voto proporzionalmente alla quantità di token ErgOne che possiedono. Questo sistema di governance consente loro di partecipare attivamente alle decisioni della piattaforma e di supportare progetti meritevoli all’interno della comunità.</p>
+      <h3>Caratteristiche Distintive di ErgOne</h3>
+      <p>ErgOne offre un insieme completo di strumenti per favorire la partecipazione attiva e la crescita di una comunità equa e trasparente. Tra i servizi principali:</p>
+      <ul>
+        <li><strong>Sistema di Proof-of-Commitment</strong>: Questo innovativo sistema permette agli utenti di "dimostrare il proprio impegno" (da cui il termine Proof-of-Commitment) attraverso attività e partecipazione attiva nella piattaforma. Gli utenti che contribuiscono alla crescita e alla promozione della comunità possono ottenere ricompense proporzionate al loro coinvolgimento. Questo approccio sostituisce l’influenza degli algoritmi centralizzati con un modello meritocratico, in cui ogni partecipante è ricompensato in base al proprio contributo, e non attraverso logiche di visibilità imposte.</li>
+        <li><strong>Promozione Decentralizzata dei Contenuti</strong>: ErgOne consente ai creatori di avere visibilità in modo equo e trasparente. Poiché la reputazione e il valore sono determinati dal contributo diretto e dalla partecipazione attiva, l'influenza di algoritmi esterni è minimizzata, garantendo che i contenuti promossi siano quelli effettivamente sostenuti dalla comunità. Questo modello crea un ambiente favorevole sia per i creatori emergenti che per i consumatori, in cui il valore viene deciso collettivamente, anziché manipolato da piattaforme centralizzate.</li>
+      </ul>
+      <h3>Perché ErgOne?</h3>
+      <p>ErgOne rappresenta una soluzione avanzata e versatile per chi cerca un ambiente di marketing decentralizzato che rispetti la trasparenza, la meritocrazia e la libertà individuale. Grazie alla blockchain di Ergo, la piattaforma è sicura, resiliente e offre la possibilità di costruire un’economia digitale che valorizza e premia la partecipazione effettiva.</p>
+      <p>In questo modo, ErgOne risponde alla crescente domanda di modelli economici e sociali che siano aperti e democratici, dove ogni membro possa sentirsi valorizzato. La piattaforma si pone come punto di riferimento per un marketing basato su valori di decentralizzazione e partecipazione, favorendo la nascita di un ecosistema in cui il successo si costruisce collettivamente.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- CTA Section -->
-  <section class="cta-section py-5 text-center" data-aos="zoom-in">
-    <div class="container">
-      <h2>Unisciti a ErgOne</h2>
-      <p>Partecipa alla community di ErgOne e contribuisci a creare un ecosistema decentralizzato che premia la trasparenza, la meritocrazia e la partecipazione diretta.</p>
-      <a href="sign-up.html" class="btn btn-primary">Registrati Ora</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-4 text-center text-white bg-primary">
-    <p>&copy; 2023 ErgOne - Powered By Ergo Platform Italian Ecosystem</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
-  <script>
-    AOS.init();
-  </script>
-</body>
-</html>
+  <!--
