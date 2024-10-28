@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Storia della Blockchain: scopri come la blockchain si è evoluta nel corso degli anni e il suo impatto sul mondo moderno.">
+  <meta name="description" content="Storia della Blockchain e delle Criptovalute: scopri come la blockchain si è evoluta nel corso degli anni e il suo impatto sul mondo moderno.">
   <title>Storia della Blockchain - Ergopedia</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -45,12 +45,29 @@
       width: 100%;
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     }
+
+    .bg-overlay {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin-top: 2rem;
+    }
   </style>
 </head>
-<body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
+<body class="light-mode">
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
@@ -74,32 +91,80 @@
 
   <!-- Contenuto principale -->
   <div class="container p-5">
-    <div class="bg-overlay">
-      <h1>Storia della Blockchain</h1>
-      <p>La blockchain ha rivoluzionato il mondo moderno dalla sua creazione, portando con sé un nuovo paradigma per la gestione delle informazioni e delle transazioni. Questa tecnologia è nata per supportare la criptovaluta Bitcoin, ma da allora è diventata una base fondamentale per molte altre applicazioni e settori.</p>
-      <p>In questa sezione esploreremo l'evoluzione della blockchain, i principali eventi storici che ne hanno determinato la crescita e le sue future prospettive nel mondo della tecnologia e della finanza.</p>
+    <div class="bg-overlay" data-aos="fade-up">
+      <h1>La Storia delle Criptovalute: Dalle Prime Idee a Bitcoin e alla Rivoluzione di Ergo Platform</h1>
+      <p class="lead">Il mondo delle criptovalute nasce da una visione radicale: costruire un'economia digitale aperta, libera da intermediari, in cui le persone possono comunicare e scambiare valore in modo sicuro. Questa idea ha preso forma negli anni '80 e '90 grazie a un gruppo di pensatori e sviluppatori, che iniziarono a immaginare tecnologie innovative per proteggere la privacy e l'autonomia individuale. Oggi, uno degli eredi più significativi di questa visione è Ergo, una piattaforma che punta a portare avanti questa filosofia in un mondo sempre più digitalizzato.</p>
+
+      <h2>1. Dalle Prime Idee di Privacy Digitale alla Nascita di Bitcoin</h2>
+      <p>Negli anni '80, il concetto di privacy digitale era ancora in fase di sviluppo. David Chaum, uno dei pionieri di questa disciplina, creò protocolli per un "cash digitale", che permettessero scambi sicuri e anonimi. Hal Finney, famoso per il suo impegno nella protezione della privacy, fu il primo a ricevere una transazione Bitcoin direttamente da Satoshi Nakamoto, il misterioso creatore di Bitcoin.</p>
+      <p>Satoshi Nakamoto inviò nel 2008 il white paper "Bitcoin: A Peer-to-Peer Electronic Cash System". Nel gennaio 2009, minò il primo blocco della blockchain di Bitcoin, inserendo il messaggio: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks". Era un chiaro riferimento alla crisi finanziaria globale e una dichiarazione di intenti.</p>
+
+      <h2>2. Bitcoin e il Meccanismo del Proof of Work</h2>
+      <p>Bitcoin si basa sulla tecnologia Proof of Work (PoW), un protocollo di consenso che richiede ai miner di risolvere complessi problemi matematici per validare le transazioni. Questo processo di mining rende estremamente difficile manomettere la blockchain e garantisce la sicurezza del sistema.</p>
+
+      <div class="alert alert-info" role="alert">
+        <strong>Glossario:</strong><br>
+        <strong>Proof of Work (PoW):</strong> Un metodo di consenso decentralizzato che richiede calcoli complessi per confermare le transazioni e mettere in sicurezza la blockchain.<br>
+        <strong>Mining:</strong> Processo in cui i miner validano le transazioni e ottengono criptovaluta come ricompensa.
+      </div>
+
+      <h2>3. L'Evoluzione delle Criptovalute: Dai Contratti Intelligenti a Ergo</h2>
+      <p>Dopo Bitcoin, Ethereum introdusse i contratti intelligenti, aprendo la strada a nuove applicazioni decentralizzate. Purtroppo, molti progetti si focalizzarono più sul profitto che sulla decentralizzazione. Ergo Platform nasce per riprendere la visione originale, adottando nuove tecnologie per mantenere un sistema scalabile, sicuro e davvero inclusivo.</p>
+
+      <h2>Aneddoto sulla Nascita di Ergo</h2>
+      <p>Ergo fu fondato da Alex Chepurnoy e Dmitry Meshkov, con l'obiettivo di creare una blockchain realmente sostenibile. Chepurnoy aveva contribuito a piattaforme come Ethereum e Nxt, mentre Meshkov lavorava su sistemi crittografici avanzati. Con Ergo, volevano affrontare i limiti di privacy, scalabilità e accessibilità che altri sistemi non erano riusciti a risolvere.</p>
+
+      <h2>4. Ergo: Tecnologie e Filosofia Uniche</h2>
+      <p>Ergo utilizza l'Extended UTXO Model (eUTXO), che combina la semplicità del sistema di Bitcoin con la flessibilità dei contratti di Ethereum. Il sistema PoW di Ergo è progettato per essere più inclusivo e accessibile, permettendo a chiunque con hardware di base di partecipare al mining.</p>
+	
+      <div class="alert alert-info" role="alert">
+      <strong> Progetti Innovativi</strong><br>
+      <ul>
+        <li><strong>SigmaUSD:</strong> Stablecoin algoritmica decentralizzata che garantisce stabilità senza un'istituzione centrale.</li>
+        <li><strong>ErgoMixer:</strong> Uno strumento che permette agli utenti di nascondere i dettagli delle transazioni, mantenendo l'anonimato.</li>
+        <li><strong>Ergo Auction House:</strong> Una piattaforma di aste decentralizzata per scambiare asset digitali senza intermediari.</li>
+        <li><strong>ErgoDEX:</strong> Un exchange cross-chain decentralizzato per scambiare criptovalute su diverse blockchain senza registrazioni.</li>
+      </ul>
+      </div>
+
+      <h2>6. Il Manifesto di Ergo e i Principi di Decentralizzazione</h2>
+      <p>Ergo promuove una governance decentralizzata, un'economia digitale libera e accessibile, e un controllo distribuito tra gli utenti. Il manifesto di Ergo sottolinea l'importanza di privacy, accessibilità e sostenibilità come fondamenta per un sistema economico digitale senza compromessi.</p>
+
+      <h2>7. Conclusione: Il Futuro di Ergo e il Sogno di un'Economia Digitale Libera</h2>
+      <p>Oggi, mentre l'adozione delle criptovalute cresce, Ergo si distingue come uno dei pochi progetti che non ha abbandonato l'idea originale di una blockchain decentralizzata e rispettosa della privacy. Con il suo approccio inclusivo e il suo modello economico sostenibile, Ergo guarda al futuro senza dimenticare le idee che hanno dato origine al mondo delle criptovalute.</p>
     </div>
   </div>
 
   <!-- Footer -->
   <footer class="p-3 bg-dark text-white text-center">
-    <p>&copy; 2023 Ergo Platform Ecosystem</p>
+    <p>&copy; 2023 Powered By Ergo Platform Italia Ecosystem</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init();
 
-    // Theme Toggle Functionality
+    // Theme Toggle Functionality with Persistent Storage
     document.getElementById('themeToggle').addEventListener('click', function() {
       const body = document.body;
       if (body.classList.contains('light-mode')) {
         body.classList.remove('light-mode');
         body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
       } else {
         body.classList.remove('dark-mode');
         body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light-mode');
+      }
+    });
+
+    // Apply saved theme on page load
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.body.classList.remove('light-mode', 'dark-mode');
+        document.body.classList.add(savedTheme);
       }
     });
   </script>
