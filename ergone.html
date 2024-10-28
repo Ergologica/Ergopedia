@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ErgOne: scopri la soluzione all-in-one per la blockchain di Ergo, che promuove un ecosistema decentralizzato, sicuro e community-driven.">
-  <title>ErgOne - Ergopedia</title>
+  <meta name="description" content="ErgOne: una piattaforma all-in-one innovativa sulla blockchain di Ergo, progettata per rivoluzionare il marketing decentralizzato con trasparenza e partecipazione comunitaria.">
+  <title>ErgOne - La Soluzione All-in-One sulla Blockchain Ergo</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -14,46 +14,32 @@
       font-family: Arial, sans-serif;
       color: #2c2c2c;
       background-color: #f8f9fa;
-      min-height: 100vh;
+      margin: 0;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
-
-    /* Background Image */
-    body.light-mode {
-      background-image: url("img/background.webp");
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
+    .bg-primary, footer {
+      background-color: #1e1e1e !important;
     }
-
-    body.dark-mode {
-      background-image: url("img/background.webp");
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: #e0e0e0;
+    .text-highlight {
+      color: #ff6600;
     }
-
-    /* Footer ancorato ai piedi della pagina */
-    footer {
-      background-color: #1e1e1e;
-      color: #ffffff;
-      padding: 1rem;
-      text-align: center;
-      margin-top: auto;
-      width: 100%;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    /* Stili Responsivi */
+    @media (max-width: 768px) {
+      .hero-section, .about-section, .services-section, .cta-section {
+        text-align: center;
+      }
     }
   </style>
 </head>
-<body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
+<body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
+        <img src="img/ergo_logo.png" alt="Logo Ergo" height="30"> Ergo Platform Italia
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -68,41 +54,62 @@
           <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
         </ul>
       </div>
-      <button class="btn btn-secondary" id="themeToggle">Toggle Theme</button>
     </div>
   </nav>
 
-  <!-- Contenuto principale -->
-  <div class="container p-5">
-    <div class="bg-overlay">
-      <h1>ErgOne: All-in-One su Blockchain Ergo</h1>
-      <p>ErgOne &egrave; un progetto che opera sulla blockchain di Ergo e si presenta come una soluzione "all-in-one" per promuovere l'adozione di un modello di marketing decentralizzato. Il suo obiettivo &egrave; creare un'infrastruttura decentralizzata per sostenere creatori di contenuti, artisti e influencer senza dipendere da autorit&agrave; centrali o decisionali.</p>
-      <p>La piattaforma introduce un modello di partecipazione comunitaria in cui il valore e la reputazione sono determinati dal contributo diretto all'ecosistema Ergo. Gli utenti possono ottenere maggiore potere di voto in base alla quantit&agrave; di token ErgOne posseduti, consentendo loro di partecipare alle decisioni e supportare progetti nella comunit&agrave;.</p>
-      <p>ErgOne offre una variet&agrave; di servizi, come un sistema di "Proof-of-Commitment" che permette agli utenti di impegnarsi e ottenere ricompense basate sulla loro partecipazione attiva. Questo approccio mira a ridurre l'influenza degli algoritmi centralizzati e a promuovere una maggiore equit&agrave; nella promozione dei contenuti.</p>
-          </div>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero-section py-5 text-center bg-dark text-white" data-aos="fade-up">
+    <div class="container">
+      <h1 class="display-4">ErgOne: La Soluzione All-in-One sulla Blockchain Ergo</h1>
+      <p class="lead">Una piattaforma innovativa che supporta creatori, artisti e influencer, promuovendo una decentralizzazione autentica e meritocratica.</p>
+      <a href="#about" class="btn btn-primary mt-3">Scopri di più</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section py-5" data-aos="fade-right">
+    <div class="container">
+      <h2 class="text-center text-highlight">Perché ErgOne è Rivoluzionario</h2>
+      <p>ErgOne è un progetto all’avanguardia sulla blockchain di Ergo, pensato per trasformare il marketing decentralizzato. La piattaforma elimina l'influenza di autorità centralizzate e algoritmi opachi, creando un ecosistema in cui la reputazione e il valore si basano su contributi reali e verificabili da parte della community.</p>
+      <p>Il sistema di governance della piattaforma assegna potere decisionale ai membri in base alla quantità di token ErgOne posseduti, garantendo trasparenza e accesso equo alle decisioni strategiche. I progetti e i contenuti supportati sono scelti direttamente dalla community, promuovendo uno spazio inclusivo e democratico.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services-section py-5 bg-light" data-aos="fade-left">
+    <div class="container">
+      <h2 class="text-center text-highlight">Caratteristiche Distintive di ErgOne</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Sistema di Proof-of-Commitment</h3>
+          <p>Gli utenti possono "dimostrare il proprio impegno" (Proof-of-Commitment) attraverso partecipazione attiva e supporto alla community, ottenendo ricompense proporzionate al loro contributo. Questo approccio meritocratico minimizza l'influenza di algoritmi centralizzati, premiando i membri in base al valore effettivo delle loro azioni.</p>
+        </div>
+        <div class="col-md-6">
+          <h3>Promozione Decentralizzata dei Contenuti</h3>
+          <p>ErgOne consente ai creatori di ottenere visibilità basata sulla partecipazione attiva della community, anziché su algoritmi. Questo crea un ambiente inclusivo in cui emergono contenuti effettivamente sostenuti, beneficiando sia i creatori emergenti che gli utenti finali in cerca di contenuti autentici e meritocratici.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section py-5 text-center" data-aos="zoom-in">
+    <div class="container">
+      <h2>Unisciti a ErgOne</h2>
+      <p>Partecipa alla community di ErgOne e contribuisci a creare un ecosistema decentralizzato che premia la trasparenza, la meritocrazia e la partecipazione diretta.</p>
+      <a href="sign-up.html" class="btn btn-primary">Registrati Ora</a>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="p-3 bg-dark text-white text-center">
-    <p>&copy; 2023 Powered By Ergo Platform Italian Ecosystem</p>
+  <footer class="py-4 text-center text-white bg-primary">
+    <p>&copy; 2023 ErgOne - Powered By Ergo Platform Italian Ecosystem</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
   <script>
     AOS.init();
-
-    // Theme Toggle Functionality
-    document.getElementById('themeToggle').addEventListener('click', function() {
-      const body = document.body;
-      if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-      } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-      }
-    });
   </script>
 </body>
 </html>
