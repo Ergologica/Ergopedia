@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sicurezza nelle Criptovalute: impara le migliori pratiche per proteggere i tuoi fondi e mantenere le tue criptovalute al sicuro.">
+  <meta name="description" content="Sicurezza nelle criptovalute: scopri le migliori pratiche per proteggere i tuoi fondi e prevenire minacce come phishing, malware e social engineering.">
   <title>Sicurezza nelle Criptovalute - Ergopedia</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -45,9 +45,28 @@
       width: 100%;
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     }
+
+    /* Stile per l'immagine del titolo */
+    .title-img {
+      height: 60px;
+      margin-right: 15px;
+    }
+
+    /* Stile per il contenuto principale per migliorare il contrasto */
+    .main-content {
+      background-color: rgba(255, 140, 0, 1);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .bg-overlay {
+      background-color: rgba(255, 140, 0, 1);
+      padding: 2rem;
+      border-radius: 8px;
+    }
   </style>
 </head>
-<body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
+<body class="light-mode">
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light">
@@ -63,7 +82,7 @@
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="wallet.html">Wallet</a></li>
           <li class="nav-item"><a class="nav-link" href="token.html">Token ERG</a></li>
-          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Contratti Smart</a></li>
+          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Smart Contracts</a></li>
           <li class="nav-item"><a class="nav-link" href="mining.html">Mining</a></li>
           <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
         </ul>
@@ -74,10 +93,26 @@
 
   <!-- Contenuto principale -->
   <div class="container p-5">
-    <div class="bg-overlay">
-      <h1>Sicurezza nelle Criptovalute</h1>
-      <p>La sicurezza è un aspetto cruciale per chiunque utilizzi le criptovalute. Poiché le criptovalute sono risorse digitali, la loro sicurezza dipende in gran parte dalle misure adottate dagli utenti per proteggere i propri fondi e le proprie chiavi private.</p>
-      <p>In questa sezione esploreremo le migliori pratiche per mantenere sicuri i tuoi asset digitali, tra cui la gestione sicura delle chiavi private, l'uso di wallet hardware, e come difendersi dai principali tipi di attacchi informatici.</p>
+    <div class="main-content">
+      <div class="bg-overlay d-flex align-items-center">
+        <i class="bi bi-shield-lock-fill me-2" style="font-size: 2rem; color: #ffffff;"></i>
+        <h1>Sicurezza nelle Criptovalute</h1>
+      </div>
+      <p>La sicurezza nelle criptovalute è fondamentale per proteggere i propri fondi digitali. Poiché le criptovalute sono decentralizzate e non regolamentate da banche tradizionali, è cruciale prendere misure adeguate per evitare perdite e attacchi.</p>
+      <h3>Principali Minacce alla Sicurezza</h3>
+      <ul>
+        <li><strong>Attacchi di Phishing</strong>: Attacchi mirati a ottenere informazioni sensibili, come le chiavi private, attraverso email o siti falsi che simulano quelli legittimi. Evita di cliccare su link sospetti e verifica sempre la provenienza delle comunicazioni.</li>
+        <li><strong>Malware e Virus</strong>: I malware possono infettare il dispositivo e rubare le tue chiavi private. Usa un software antivirus aggiornato e scarica app solo da fonti affidabili.</li>
+        <li><strong>Social Engineering</strong>: Tecniche di manipolazione per convincere le vittime a rivelare informazioni personali. Mantieni segrete le tue chiavi e non condividere mai informazioni sensibili online.</li>
+      </ul>
+      <h3>Buone Pratiche per la Sicurezza</h3>
+      <ol>
+        <li><strong>Conserva le Chiavi Private Offline</strong>: Usa un portafoglio hardware (cold wallet) per mantenere le tue chiavi private offline e al sicuro da hacker.</li>
+        <li><strong>Abilita l'Autenticazione a Due Fattori (2FA)</strong>: Utilizza il 2FA per aggiungere un ulteriore livello di sicurezza su exchange e wallet online.</li>
+        <li><strong>Verifica il Codice Open-source</strong>: Scegli wallet che sono open-source per garantire la trasparenza e permettere alla comunità di esaminare il codice.</li>
+        <li><strong>Fai Backup Sicuri</strong>: Esegui backup delle tue chiavi private e delle frasi di recupero, conservandoli in luoghi sicuri e separati.</li>
+      </ol>
+      <p>Seguendo queste linee guida, puoi ridurre al minimo i rischi e garantire una maggiore sicurezza per i tuoi asset digitali. Ricorda che la tua sicurezza dipende dalle misure che prendi per proteggere le tue criptovalute.</p>
     </div>
   </div>
 
@@ -89,20 +124,21 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
   <script>
-    AOS.init();
-
-    // Theme Toggle Functionality
-    document.getElementById('themeToggle').addEventListener('click', function() {
-      const body = document.body;
-      if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-      } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-      }
+    document.addEventListener("DOMContentLoaded", function() {
+      AOS.init();
+      
+      // Theme Toggle Functionality
+      document.getElementById('themeToggle').addEventListener('click', function() {
+        const body = document.body;
+        if (body.classList.contains('light-mode')) {
+          body.classList.remove('light-mode');
+          body.classList.add('dark-mode');
+        } else {
+          body.classList.remove('dark-mode');
+          body.classList.add('light-mode');
+        }
+      });
     });
   </script>
 </body>
 </html>
-
