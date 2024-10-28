@@ -109,9 +109,9 @@
 
   <!-- Container Centrale per la Caccia al Tesoro -->
   <div class="treasure-hunt-container" id="treasureHuntContainer">
-    <h1 class="level-header">Livello 1: Introduzione a Sigmaverse</h1>
-    <p>Benvenuto nel primo livello della caccia al tesoro di Ergo! Sigmaverse &egrave; la porta d'ingresso per esplorare l'universo di Ergo, dove ogni dApp e progetto contribuisce alla crescita dell'ecosistema. La tua missione per questo livello &egrave; comprendere come Sigmaverse connette vari progetti e piattaforme all'interno della blockchain di Ergo. Per maggiori informazioni, visita <a href="https://sigmaverse.io" target="_blank">Sigmaverse</a>.</p>
-    <button class="btn-next-level" onclick="executeSmartContract(currentLevel)">Prossimo Livello</button>
+    <h1 class="level-header" id="levelHeader">Livello 1: Introduzione a Sigmaverse</h1>
+    <p id="levelDescription">Benvenuto nel primo livello della caccia al tesoro di Ergo! Sigmaverse &egrave; la porta d'ingresso per esplorare l'universo di Ergo, dove ogni dApp e progetto contribuisce alla crescita dell'ecosistema. La tua missione per questo livello &egrave; comprendere come Sigmaverse connette vari progetti e piattaforme all'interno della blockchain di Ergo. Per maggiori informazioni, visita <a href="https://sigmaverse.io" target="_blank">Sigmaverse</a>.</p>
+    <button class="btn-next-level" id="nextLevelButton">Prossimo Livello</button>
   </div>
 
   <!-- Footer -->
@@ -139,71 +139,28 @@
 
     let currentLevel = 1;
 
-    async function executeSmartContract(taskCount) {
-      try {
-        const payload = {
-          address: "<Bob's Address Base58>",
-          taskCount: taskCount,
-          taskCost: 0.01 * Math.pow(2, Math.floor(taskCount / 10))
-        };
-        await sendErgoTransaction(payload);
-      } catch (error) {
-        console.error("Errore durante l'esecuzione del contratto", error);
-        alert("Errore durante l'esecuzione del contratto. Riprova.");
-      }
-    }
-
-    const unlockWallet = async () => {
-      const response = await fetch('http://127.0.0.1:9053/wallet/unlock', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'api_key': '<YOUR_API_KEY>'
-        },
-        body: JSON.stringify({ pass: '<YOUR_WALLET_PASSWORD>' })
-      });
-      if (response.ok) {
-        console.log("Wallet unlocked successfully");
+    function advanceLevel() {
+      if (currentLevel < levels.length) {
+        currentLevel++;
+        document.getElementById("levelHeader").textContent = `Livello ${currentLevel}: ${levels[currentLevel - 1]}`;
+        document.getElementById("levelDescription").textContent = `Benvenuto al livello ${currentLevel} della caccia al tesoro di Ergo! ${levels[currentLevel - 1]}.`;
       } else {
-        console.error("Error unlocking wallet");
-      }
-    };
-
-    async function sendErgoTransaction(payload) {
-      try {
-        await unlockWallet(); // Sblocca il wallet prima di inviare la transazione
-
-        const response = await fetch('http://127.0.0.1:9053/transactions/send', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'api_key': '<YOUR_API_KEY>'
-          },
-          body: JSON.stringify({
-            requests: [
-              {
-                address: payload.address,
-                value: payload.taskCost * 1e9, // Converti ERG in nanoERG
-                assets: []
-              }
-            ],
-            fee: 1000000 // 0.001 ERG come fee per la transazione
-          })
-        });
-
-        const result = await response.json();
-        if (response.ok) {
-          console.log("Transazione inviata con successo", result);
-          alert("Transazione completata con successo e livello avanzato");
-        } else {
-          console.error("Errore durante l'invio della transazione", result);
-          alert("Errore durante l'invio della transazione. Riprova.");
-        }
-      } catch (error) {
-        console.error("Errore durante l'esecuzione del contratto", error);
-        alert("Errore durante l'esecuzione del contratto. Riprova.");
+        alert("Congratulazioni! Hai completato tutti i livelli della caccia al tesoro!");
       }
     }
 
-    function submitTransactionAndAdvanceLevel(nextLevel, levelTitle) {
-      console.log(`Invio transazione
+    document.getElementById("nextLevelButton").addEventListener("click", advanceLevel);
+
+    // Theme Toggle Functionality
+    document.getElementById("themeToggle").addEventListener("click", function() {
+      document.body.classList.toggle("dark-mode");
+      const treasureContainer = document.getElementById("treasureHuntContainer");
+      if (document.body.classList.contains("dark-mode")) {
+        treasureContainer.classList.add("dark-mode");
+      } else {
+        treasureContainer.classList.remove("dark-mode");
+      }
+    });
+  </script>
+</body>
+</html>
