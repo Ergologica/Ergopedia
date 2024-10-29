@@ -5,48 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Guida completa all'ecosistema blockchain Ergo per principianti e intermedi. Scopri le funzionalità avanzate per la DeFi, la sicurezza blockchain, e come configurare un wallet Ergo sicuro. Approfondisci il token ERG, gli smart contract e il mining sostenibile su Ergo.">
   <title>Manifesto di Ergo Platform</title>
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">Ergopedia</div>
-      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="defi.html">DeFi</a></li>
-        <li><a href="history.html">Storia</a></li>
-        <li><a href="nft.html">NFT</a></li>
-        <li><a href="manifesto.html">Manifesto</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
 
-  <main>
-    <section class="manifesto">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="wallet.html">Wallet</a></li>
+          <li class="nav-item"><a class="nav-link" href="token.html">Token ERG</a></li>
+          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Smart Contracts</a></li>
+          <li class="nav-item"><a class="nav-link" href="mining.html">Mining</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <button class="btn btn-secondary" id="themeToggle">Toggle Theme</button>
+    </div>
+  </nav>
+
+  <!-- Contenuto principale -->
+  <div class="container p-5">
+    <div class="bg-overlay">
       <h1>Manifesto di Ergo Platform</h1>
       <p>Ergo è una piattaforma blockchain progettata per facilitare contratti finanziari efficienti, sicuri e facili da implementare. Miriamo a fornire strumenti agli individui e alle organizzazioni per creare applicazioni decentralizzate (dApps) in un modo che promuova sia la privacy sia la trasparenza.</p>
       <p>In un mondo in cui la tecnologia viene costantemente commercializzata e utilizzata per controllare gli utenti, il nostro scopo è tornare alle radici e sviluppare una piattaforma orientata alla libertà e all'indipendenza finanziaria.</p>
       <p>Il nostro obiettivo principale è creare un'infrastruttura decentralizzata che sia veramente resiliente e senza restrizioni. Crediamo fermamente nell'open source e nella costruzione di un'economia finanziaria che sia accessibile a chiunque, indipendentemente dalla loro localizzazione geografica o background economico.</p>
       <p>La blockchain Ergo è stata costruita per essere autosufficiente, con un protocollo che si evolve senza l'intervento di alcuna entità centralizzata. Ciò consente una governance più equa, alimentata dai minatori e dalla comunità, assicurando che gli aggiornamenti e gli sviluppi siano sempre mirati al miglioramento dell'intero ecosistema.</p>
       <p>Riconosciamo il potenziale dell'economia digitale come forza liberatrice e desideriamo fornire a tutti gli strumenti per diventare i veri custodi del proprio denaro e dei propri dati. Con una missione chiara di costruire tecnologie robuste che mettano l'interesse dell'utente al centro, Ergo rappresenta una nuova era dell'infrastruttura finanziaria decentralizzata.</p>
-    </section>
-  </main>
+    </div>
+  </div>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="p-3 bg-dark text-white text-center">
     <p>&copy; 2024 Ergopedia. Tutti i diritti riservati.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
   <script>
-    // JS per abilitare il toggle del menu per dispositivi mobili
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    AOS.init();
 
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('nav-menu_visible');
+    // Theme toggle script
+    document.addEventListener('DOMContentLoaded', function() {
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        body.classList.remove('light-mode', 'dark-mode');
+        body.classList.add(savedTheme);
+      }
+    });
+
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const body = document.body;
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light-mode');
+      }
     });
   </script>
 </body>
 </html>
+
