@@ -49,6 +49,7 @@ body.dark-mode {
   border-radius: 10px;
   color: #2c2c2c; /* Adattato il colore del contenuto per contrastare con il bianco */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .dark-mode .bg-overlay {
@@ -97,7 +98,9 @@ body.dark-mode {
 
 /* Bottoni di Approfondimento */
 .btn-learn-more {
-  margin-top: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
   color: #fff;
   background-color: var(--color-button-bg);
   border: none;
@@ -171,6 +174,7 @@ body.dark-mode {
   cursor: pointer;
   overflow: hidden;
   color: #2c2c2c; /* Adattato per contrastare con il bianco dello sfondo */
+  position: relative;
 }
 
 .dark-mode .grid-item {
@@ -207,5 +211,3 @@ footer {
     padding: 0.25rem 0.5rem;
   }
 }
-
-
