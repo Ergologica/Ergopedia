@@ -1,124 +1,85 @@
 <!DOCTYPE html>
-
 <html lang="it">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Guida completa all'ecosistema blockchain Ergo per principianti e intermedi. Scopri le funzionalità avanzate per la DeFi, la sicurezza blockchain, e come configurare un wallet Ergo sicuro. Approfondisci il token ERG, gli smart contract e il mining sostenibile su Ergo." name="description"/>
-<title>Ergopedia</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="css/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Guida completa all'ecosistema blockchain Ergo per principianti e intermedi. Scopri le funzionalità avanzate per la DeFi, la sicurezza blockchain, e come configurare un wallet Ergo sicuro. Approfondisci il token ERG, gli smart contract e il mining sostenibile su Ergo."/>
+    <title>Ergopedia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
 </head>
 <body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
-<!-- Navbar -->
 
-<nav style="background-color: #f8f9fa; padding: 10px;">
-<ul style="list-style: none; display: flex; align-items: center; padding: 0; margin: 0;">
-<li style="margin-right: 20px;">
-<a href="index.html"><img alt="Ergopedia Logo" src="img/ergo_logo.png" style="height: 40px; vertical-align: middle;"/></a>
-</li>
-<li><a href="index.html" style="text-decoration: none; color: #333; margin-right: 15px;">Home</a></li>
-<li><a href="history.html" style="text-decoration: none; color: #333; margin-right: 15px;">Storia</a></li>
-<li><a href="manifesto.html" style="text-decoration: none; color: #333;">Manifesto</a></li>
-</ul>
+<!-- Navbar -->
+<nav style="background-color: #f8f9fa; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+    <ul style="list-style: none; display: flex; align-items: center; padding: 0; margin: 0;">
+        <li style="margin-right: 20px;">
+            <a href="index.html"><img src="img/ergo_logo.png" alt="Ergopedia Logo" style="height: 40px; vertical-align: middle;"/></a>
+        </li>
+        <li><a href="index.html" style="text-decoration: none; color: #333; margin-right: 15px;">Home</a></li>
+        <li><a href="history.html" style="text-decoration: none; color: #333; margin-right: 15px;">Storia</a></li>
+        <li><a href="manifesto.html" style="text-decoration: none; color: #333;">Manifesto</a></li>
+    </ul>
+    <ul style="list-style: none; display: flex; align-items: center; padding: 0; margin: 0;">
+        <li><a href="hunt.html" style="text-decoration: none; color: #333; margin-right: 15px;">Hunt</a></li>
+    </ul>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero-section text-center text-white" style="background: url('img/background.webp') center/cover no-repeat; padding: 4rem 2rem;">
-<div class="container bg-dark bg-opacity-75 p-4 rounded">
-<h1 class="display-4">Benvenuti su Ergopedia</h1>
-<p class="lead">La guida completa per esplorare l'ecosistema blockchain di Ergo</p>
-<a class="btn btn-primary btn-lg mt-3" href="manifesto.html">Leggi Il Manifesto</a>
-</div>
+    <div class="container bg-dark bg-opacity-75 p-4 rounded">
+        <h1 class="display-4">Benvenuti su Ergopedia</h1>
+        <p class="lead">La guida completa per esplorare l'ecosistema blockchain di Ergo</p>
+        <a class="btn btn-primary btn-lg mt-3" href="manifesto.html">Leggi Il Manifesto</a>
+    </div>
 </section>
-<!-- Griglia delle Sezioni -->
+
+<!-- Grid of Sections -->
 <section class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem;">
-<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-<h2 class="section-header mb-4">Introduzione alla DeFi</h2>
-<p class="lead">Scopri cosa rende la finanza decentralizzata (DeFi) una delle aree più promettenti della blockchain.</p>
-<a class="btn btn-learn-more" href="defi.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-</div>
-</div>
-<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-<h2 class="section-header mb-4">ErgOne: Crescita Organica dal Basso</h2>
-<p class="lead">Scopri ErgOne e come stia promuovendo una crescita decentralizzata all'interno dell'ecosistema Ergo.</p>
-<a class="btn btn-learn-more" href="ergone.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-</div>
-</div>
-<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-<h2 class="section-header mb-4">Comprendere Ergo, $Erg e i suoi token nativi</h2>
-<p class="lead">$ERG è il gettone nativo della piattaforma Ergo, usato per pagare le commissioni, nella DeFi e nel mining.</p>
-<a class="btn btn-learn-more" href="token.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-</div>
-</div>
-<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-<h2 class="section-header mb-4">Sicurezza nelle Criptovalute</h2>
-<p class="lead">Impara le migliori pratiche per proteggere i tuoi fondi e mantenere le tue criptovalute al sicuro.</p>
-<a class="btn btn-learn-more" href="security.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-</div>
-</div>
-<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-<h2 class="section-header mb-4">Configurare un Wallet Ergo</h2>
-<p class="lead">Esplora le opzioni di wallet su Ergo e le migliori pratiche di sicurezza.</p>
-<a class="btn btn-learn-more" href="wallet.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-</div>
-</div>
-<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-<h2 class="section-header mb-4">NFT e Arte Digitale</h2>
-<p class="lead">Approfondisci il fenomeno degli NFT e scopri come stanno rivoluzionando il mondo dell'arte digitale.</p>
-<a class="btn btn-learn-more" href="nft.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-</div>
-</div>
-<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-<h2 class="section-header mb-4">Gli Smart Contract su Ergo</h2>
-<p class="lead">ErgoScript consente la creazione di contratti sicuri per applicazioni DeFi avanzate.</p>
-<a class="btn btn-learn-more" href="smart-contracts.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-</div>
-</div>
-<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-<h2 class="section-header mb-4">Mining su Ergo: Accessibilità e Efficienza</h2>
-<p class="lead">Scopri l'algoritmo Autolykos v2, progettato per un mining sostenibile su Ergo.</p>
-<a class="btn btn-learn-more" href="mining.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-</div>
-</div>
+    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div class="content" style="padding: 1rem; height: 100%;">
+            <h2 class="section-header mb-4">Introduzione alla DeFi</h2>
+            <p class="lead">Scopri cosa rende la finanza decentralizzata (DeFi) una delle aree più promettenti della blockchain.</p>
+            <a class="btn btn-learn-more" href="defi.html" style="align-self: flex-end;">Scopri di più</a>
+        </div>
+    </div>
+    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div class="content" style="padding: 1rem; height: 100%;">
+            <h2 class="section-header mb-4">ErgOne: Crescita Organica dal Basso</h2>
+            <p class="lead">Scopri ErgOne e come stia promuovendo una crescita decentralizzata nell'ecosistema Ergo.</p>
+            <a class="btn btn-learn-more" href="ergone.html" style="align-self: flex-end;">Scopri di più</a>
+        </div>
+    </div>
+    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+        <div class="content" style="padding: 1rem; height: 100%;">
+            <h2 class="section-header mb-4">Sicurezza nelle Criptovalute</h2>
+            <p class="lead">Impara le migliori pratiche per proteggere i tuoi fondi e mantenere le tue criptovalute al sicuro.</p>
+            <a class="btn btn-learn-more" href="security.html" style="align-self: flex-end;">Scopri di più</a>
+        </div>
+    </div>
+    <!-- Add additional grid items as needed -->
 </section>
+
 <!-- Footer -->
 <footer class="p-3 bg-dark text-white text-center">
-<p>© 2023 Powered By Ergo Platform Italian Ecosystem</p>
+    <p>© 2023 Powered By Ergo Platform Italian Ecosystem</p>
 </footer>
-<script async="" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script async="" src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
 <script>
     AOS.init();
 
     function expandSection(element) {
-      document.querySelectorAll('.grid-item').forEach(item => {
-        if (item !== element) {
-          item.classList.remove('expanded');
-        }
-      });
-      element.classList.toggle('expanded');
+        document.querySelectorAll('.grid-item').forEach(item => {
+            if (item !== element) {
+                item.classList.remove('expanded');
+            }
+        });
+        element.classList.toggle('expanded');
     }
-
-    document.getElementById('themeToggle').addEventListener('click', function() {
-      const body = document.body;
-      if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-      } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-      }
-    });
-  </script>
+</script>
 </body>
 </html>
+
