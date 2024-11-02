@@ -48,6 +48,10 @@ body {
     font-family: var(--font-family-base);
     color: var(--color-text);
     background-color: var(--color-background);
+    background-image: url("../img/background.webp");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -56,6 +60,10 @@ body {
 body.dark-mode {
     color: var(--color-text-dark);
     background-color: var(--color-background-dark);
+    background-image: url("../img/background.webp");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 a {
@@ -121,7 +129,8 @@ a:hover {
 
 /* === Hero Section === */
 .hero-section {
-    background: linear-gradient(rgba(30, 30, 60, 0.8), rgba(30, 30, 60, 0.8)), url("../img/background.webp") center/cover no-repeat;
+    background: linear-gradient(rgba(30, 30, 60, 0.8), rgba(30, 30, 60, 0.8)),
+                url("../img/background.webp") center/cover no-repeat;
     color: var(--color-text-light);
     text-align: center;
     padding: 4rem 2rem;
@@ -135,7 +144,6 @@ a:hover {
 
 .hero-section h1 {
     font-size: var(--font-size-h1);
-    text-align: center;
     font-weight: bold;
     margin-bottom: var(--spacing-small);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -146,7 +154,6 @@ a:hover {
     font-size: var(--font-size-large);
     max-width: 600px;
     line-height: 1.6;
-    text-align: center;
     margin-bottom: var(--spacing-base);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     color: var(--color-text-light);
@@ -167,7 +174,8 @@ a:hover {
 }
 
 body.dark-mode .hero-section {
-    background: linear-gradient(rgba(10, 10, 20, 0.8), rgba(10, 10, 20, 0.8)), url("../img/background.webp") center/cover no-repeat;
+    background: linear-gradient(rgba(10, 10, 20, 0.8), rgba(10, 10, 20, 0.8)),
+                url("../img/background.webp") center/cover no-repeat;
 }
 
 body.dark-mode .hero-section h1,
@@ -400,4 +408,3 @@ footer {
         font-size: 0.9rem;
     }
 }
-
