@@ -17,20 +17,32 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg" aria-label="Primary Navigation">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="img/ergo_logo.png" alt="Ergopedia Logo" style="height: 40px;"/>
+            <!-- Brand Logo -->
+            <a class="navbar-brand" href="index.html" aria-label="Ergopedia Home">
+                <img src="img/ergo_logo.png" alt="Ergopedia Logo" class="brand-logo"/>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="history.html" class="nav-link">Storia</a></li>
-                    <li class="nav-item"><a href="manifesto.html" class="nav-link">Manifesto</a></li>
                     <li class="nav-item">
-                        <a href="hunt.html" class="nav-link">
-                            <img src="img/hunt.webp" alt="Hunt Logo" class="rounded-circle" style="height: 40px; border: 2px solid #333;"/>
+                        <a href="index.html" class="nav-link" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="history.html" class="nav-link">Storia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="manifesto.html" class="nav-link">Manifesto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="hunt.html" class="nav-link" aria-label="Hunt">
+                            <img src="img/hunt.webp" alt="Hunt Logo" class="nav-logo rounded-circle"/>
                         </a>
                     </li>
                 </ul>
