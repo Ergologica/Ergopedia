@@ -80,7 +80,71 @@ body.dark-mode {
     color: #ffffff;
 }
 
-/* === Hero Section === */
+/* === Navbar Styles === */
+.navbar {
+    background-color: var(--color-navbar-light);
+    box-shadow: var(--box-shadow-navbar);
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-mode .navbar {
+    background-color: var(--color-navbar-dark);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand .brand-logo {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand .brand-logo:hover {
+    transform: scale(1.1);
+}
+
+.navbar .nav-link {
+    color: #555;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+
+.dark-mode .navbar .nav-link {
+    color: rgba(224, 224, 224, 0.85);
+}
+
+.dark-mode .navbar .nav-link:hover {
+    color: #ffffff;
+}
+
+.navbar .nav-logo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    transition: border-color 0.3s ease;
+}
+
+.navbar .nav-logo:hover {
+    border-color: var(--color-link-hover);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+    .navbar .nav-link {
+        padding: 0.5rem;
+    }
+}
+
 /* === Hero Section === */
 .hero-section {
     background: linear-gradient(rgba(30, 30, 60, 0.8), rgba(30, 30, 60, 0.8)), url("../img/background.webp") center/cover no-repeat;
