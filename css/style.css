@@ -96,24 +96,6 @@ body.dark-mode {
   color: #0056b3;
 }
 
-/* Bottoni di Approfondimento */
-.btn-learn-more {
-  align-self: flex-start;
-  color: #fff;
-  background-color: var(--color-button-bg);
-  border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: auto; /* Ensure button doesn't overlap with text */
-}
-
-.btn-learn-more:hover {
-  background-color: var(--color-button-bg-hover);
-  transform: translateY(-3px);
-}
-
 /* Navbar - Modalità Chiara e Scura */
 .navbar {
   background-color: var(--color-navbar-light);
@@ -177,6 +159,7 @@ body.dark-mode {
     flex-direction: column;
     justify-content: space-between;
     padding: 1.5rem;
+    position: relative;
 }
 
 .grid-item:hover {
@@ -206,6 +189,26 @@ body.dark-mode {
     line-height: 1.6;
     flex-grow: 1;
     margin-bottom: 1rem;
+}
+
+/* Learn More Button */
+.btn-learn-more {
+    align-self: flex-start;
+    color: #fff;
+    background-color: var(--color-button-bg);
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-learn-more:hover {
+    background-color: var(--color-button-bg-hover);
+    transform: translateY(-3px);
 }
 
 /* Footer ancorato ai piedi della pagina */
@@ -314,4 +317,3 @@ footer {
     padding: 0.25rem 0.5rem;
   }
 }
-
