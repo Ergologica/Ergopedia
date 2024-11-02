@@ -5,7 +5,7 @@
   --color-background-light: #f8f9fa;
   --color-text-dark: #e0e0e0;
   --color-background-dark: #121212;
-  --color-overlay-light: rgba(255, 255, 255, 0.85); /* Cambiato in bianco per la modalità chiara */
+  --color-overlay-light: rgba(255, 255, 255, 0.85);
   --color-overlay-dark: rgba(60, 60, 60, 0.9);
   --color-navbar-light: rgba(255, 255, 255, 0.9);
   --color-navbar-dark: rgba(18, 18, 18, 0.95);
@@ -47,7 +47,7 @@ body.dark-mode {
   box-shadow: var(--box-shadow-light);
   padding: 2rem;
   border-radius: 10px;
-  color: #2c2c2c; /* Adattato il colore del contenuto per contrastare con il bianco */
+  color: #2c2c2c;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
@@ -77,7 +77,7 @@ body.dark-mode {
 /* Testo e Liste nei Contenitori */
 .bg-overlay p,
 .bg-overlay ul li {
-  color: #2c2c2c; /* Adattato per contrastare con il bianco dello sfondo */
+  color: #2c2c2c;
   line-height: 1.6;
 }
 
@@ -87,7 +87,7 @@ body.dark-mode {
 
 /* Link nei Contenitori */
 .bg-overlay a {
-  color: #007bff; /* Colore del link adattato per migliorare il contrasto */
+  color: #007bff;
   text-decoration: underline;
   transition: color 0.3s;
 }
@@ -173,7 +173,7 @@ body.dark-mode {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   overflow: hidden;
-  color: #2c2c2c; /* Adattato per contrastare con il bianco dello sfondo */
+  color: #2c2c2c;
   position: relative;
 }
 
@@ -195,6 +195,87 @@ footer {
   margin-top: auto;
   width: 100%;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat Icon */
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: url('../img/ergo_logo.png') center/cover no-repeat;
+  box-shadow: var(--box-shadow-hover);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Chat Window */
+.chat-window {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-hover);
+  background-color: var(--color-overlay-light);
+  display: none;
+  flex-direction: column;
+  z-index: 1001;
+}
+
+.dark-mode .chat-window {
+  background-color: var(--color-overlay-dark);
+}
+
+.chat-window-header {
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+}
+
+.chat-window-body {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  color: var(--color-text-light);
+}
+
+.dark-mode .chat-window-body {
+  color: var(--color-text-dark);
+}
+
+.chat-window-footer {
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input {
+  flex-grow: 1;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.send-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.send-btn:hover {
+  background-color: #555;
 }
 
 /* Media Queries per una migliore responsività */
