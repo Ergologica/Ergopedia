@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Caccia al tesoro nell'ecosistema blockchain di Ergo: scopri Sigmaverse, approfondisci la DeFi e la sicurezza blockchain. Ogni livello esplora tematiche diverse per espandere la tua conoscenza su Ergo.">
-  <title>Ergopedia - Caccia al Tesoro</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Caccia al tesoro nell'ecosistema blockchain di Ergo: scopri Sigmaverse, approfondisci la DeFi e la sicurezza blockchain. Ogni livello esplora tematiche diverse per espandere la tua conoscenza su Ergo." name="description"/>
+<title>Ergopedia - Caccia al Tesoro</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+<style>
     /* Stili Base */
     body {
       font-family: Arial, sans-serif;
@@ -84,44 +85,32 @@
   </style>
 </head>
 <body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
+<!-- Navbar -->
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="wallet.html">Wallet</a></li>
-          <li class="nav-item"><a class="nav-link" href="token.html">Token ERG</a></li>
-          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Contratti Smart</a></li>
-          <li class="nav-item"><a class="nav-link" href="mining.html">Mining</a></li>
-          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <button class="btn btn-secondary" id="themeToggle">Toggle Theme</button>
-    </div>
-  </nav>
+<nav style="background-color: #f8f9fa; padding: 10px;">
+<ul style="list-style: none; display: flex; align-items: center; padding: 0; margin: 0;">
+<li style="margin-right: 20px;">
+<a href="index.html"><img alt="Ergopedia Logo" src="img/ergo_logo.png" style="height: 40px; vertical-align: middle;"/></a>
+</li>
+<li><a href="index.html" style="text-decoration: none; color: #333; margin-right: 15px;">Home</a></li>
+<li><a href="history.html" style="text-decoration: none; color: #333; margin-right: 15px;">Storia</a></li>
+<li><a href="manifesto.html" style="text-decoration: none; color: #333;">Manifesto</a></li>
+</ul>
+</nav>
 
-  <!-- Container Centrale per la Caccia al Tesoro -->
-  <div class="treasure-hunt-container" id="treasureHuntContainer">
-    <h1 class="level-header" id="levelHeader">Livello 1: Introduzione a Sigmaverse</h1>
-    <p id="levelDescription">Benvenuto nel primo livello della caccia al tesoro di Ergo! Sigmaverse &egrave; la porta d'ingresso per esplorare l'universo di Ergo, dove ogni dApp e progetto contribuisce alla crescita dell'ecosistema. La tua missione per questo livello &egrave; comprendere come Sigmaverse connette vari progetti e piattaforme all'interno della blockchain di Ergo. Per maggiori informazioni, visita <a href="https://sigmaverse.io" target="_blank">Sigmaverse</a>.</p>
-    <button class="btn-next-level" id="nextLevelButton">Prossimo Livello</button>
-  </div>
-
-  <!-- Footer -->
-  <footer class="p-3 bg-dark text-white text-center">
-    <p>&copy; 2023 Powered By Ergo Platform Italian Ecosystem</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
-  <script>
+<!-- Container Centrale per la Caccia al Tesoro -->
+<div class="treasure-hunt-container" id="treasureHuntContainer">
+<h1 class="level-header" id="levelHeader">Livello 1: Introduzione a Sigmaverse</h1>
+<p id="levelDescription">Benvenuto nel primo livello della caccia al tesoro di Ergo! Sigmaverse è la porta d'ingresso per esplorare l'universo di Ergo, dove ogni dApp e progetto contribuisce alla crescita dell'ecosistema. La tua missione per questo livello è comprendere come Sigmaverse connette vari progetti e piattaforme all'interno della blockchain di Ergo. Per maggiori informazioni, visita <a href="https://sigmaverse.io" target="_blank">Sigmaverse</a>.</p>
+<button class="btn-next-level" id="nextLevelButton">Prossimo Livello</button>
+</div>
+<!-- Footer -->
+<footer class="p-3 bg-dark text-white text-center">
+<p>© 2023 Powered By Ergo Platform Italian Ecosystem</p>
+</footer>
+<script async="" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script async="" src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
     AOS.init();
 
     const levels = [

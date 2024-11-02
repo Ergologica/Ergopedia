@@ -1,115 +1,103 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guida completa all'ecosistema blockchain Ergo per principianti e intermedi. Scopri le funzionalità avanzate per la DeFi, la sicurezza blockchain, e come configurare un wallet Ergo sicuro. Approfondisci il token ERG, gli smart contract e il mining sostenibile su Ergo.">
-  <title>Ergopedia</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Guida completa all'ecosistema blockchain Ergo per principianti e intermedi. Scopri le funzionalità avanzate per la DeFi, la sicurezza blockchain, e come configurare un wallet Ergo sicuro. Approfondisci il token ERG, gli smart contract e il mining sostenibile su Ergo." name="description"/>
+<title>Ergopedia</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
 </head>
 <body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
+<!-- Navbar -->
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="wallet.html">Wallet</a></li>
-          <li class="nav-item"><a class="nav-link" href="token.html">Tokens</a></li>
-          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Contratti Smart</a></li>
-          <li class="nav-item"><a class="nav-link" href="mining.html">Mining</a></li>
-          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <button class="btn btn-secondary" id="themeToggle">Toggle Theme</button>
-    </div>
-  </nav>
+<nav style="background-color: #f8f9fa; padding: 10px;">
+<ul style="list-style: none; display: flex; align-items: center; padding: 0; margin: 0;">
+<li style="margin-right: 20px;">
+<a href="index.html"><img alt="Ergopedia Logo" src="img/ergo_logo.png" style="height: 40px; vertical-align: middle;"/></a>
+</li>
+<li><a href="index.html" style="text-decoration: none; color: #333; margin-right: 15px;">Home</a></li>
+<li><a href="history.html" style="text-decoration: none; color: #333; margin-right: 15px;">Storia</a></li>
+<li><a href="manifesto.html" style="text-decoration: none; color: #333;">Manifesto</a></li>
+</ul>
+</nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section text-center text-white" style="background: url('img/background.webp') center/cover no-repeat; padding: 4rem 2rem;">
-    <div class="container bg-dark bg-opacity-75 p-4 rounded">
-      <h1 class="display-4">Benvenuti su Ergopedia</h1>
-      <p class="lead">La guida completa per esplorare l'ecosistema blockchain di Ergo</p>
-      <a href="manifesto.html" class="btn btn-primary btn-lg mt-3">Leggi Il Manifesto</a>
-    </div>
-  </section>
-
-  <!-- Griglia delle Sezioni -->
-  <section class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem;">
-    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-      <div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-        <h2 class="section-header mb-4">Introduzione alla DeFi</h2>
-        <p class="lead">Scopri cosa rende la finanza decentralizzata (DeFi) una delle aree più promettenti della blockchain.</p>
-        <a href="defi.html" class="btn btn-learn-more" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-      </div>
-    </div>
-    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-      <div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-        <h2 class="section-header mb-4">ErgOne: Crescita Organica dal Basso</h2>
-        <p class="lead">Scopri ErgOne e come stia promuovendo una crescita decentralizzata all'interno dell'ecosistema Ergo.</p>
-        <a href="ergone.html" class="btn btn-learn-more" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-      </div>
-    </div>
-    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-      <div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-        <h2 class="section-header mb-4">Comprendere Ergo, $Erg e i suoi token nativi</h2>
-        <p class="lead">$ERG è il gettone nativo della piattaforma Ergo, usato per pagare le commissioni, nella DeFi e nel mining.</p>
-        <a href="token.html" class="btn btn-learn-more" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-      </div>
-    </div>
-    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-      <div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-        <h2 class="section-header mb-4">Sicurezza nelle Criptovalute</h2>
-        <p class="lead">Impara le migliori pratiche per proteggere i tuoi fondi e mantenere le tue criptovalute al sicuro.</p>
-        <a href="security.html" class="btn btn-learn-more" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-      </div>
-    </div>
-    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-      <div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-        <h2 class="section-header mb-4">Configurare un Wallet Ergo</h2>
-        <p class="lead">Esplora le opzioni di wallet su Ergo e le migliori pratiche di sicurezza.</p>
-        <a href="wallet.html" class="btn btn-learn-more" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-      </div>
-    </div>
-    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-      <div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-        <h2 class="section-header mb-4">NFT e Arte Digitale</h2>
-        <p class="lead">Approfondisci il fenomeno degli NFT e scopri come stanno rivoluzionando il mondo dell'arte digitale.</p>
-        <a href="nft.html" class="btn btn-learn-more" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-      </div>
-    </div>
-    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-      <div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-        <h2 class="section-header mb-4">Gli Smart Contract su Ergo</h2>
-        <p class="lead">ErgoScript consente la creazione di contratti sicuri per applicazioni DeFi avanzate.</p>
-        <a href="smart-contracts.html" class="btn btn-learn-more" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-      </div>
-    </div>
-    <div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
-      <div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
-        <h2 class="section-header mb-4">Mining su Ergo: Accessibilità e Efficienza</h2>
-        <p class="lead">Scopri l'algoritmo Autolykos v2, progettato per un mining sostenibile su Ergo.</p>
-        <a href="mining.html" class="btn btn-learn-more" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="p-3 bg-dark text-white text-center">
-    <p>&copy; 2023 Powered By Ergo Platform Italian Ecosystem</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
-  <script>
+<!-- Hero Section -->
+<section class="hero-section text-center text-white" style="background: url('img/background.webp') center/cover no-repeat; padding: 4rem 2rem;">
+<div class="container bg-dark bg-opacity-75 p-4 rounded">
+<h1 class="display-4">Benvenuti su Ergopedia</h1>
+<p class="lead">La guida completa per esplorare l'ecosistema blockchain di Ergo</p>
+<a class="btn btn-primary btn-lg mt-3" href="manifesto.html">Leggi Il Manifesto</a>
+</div>
+</section>
+<!-- Griglia delle Sezioni -->
+<section class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem;">
+<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
+<h2 class="section-header mb-4">Introduzione alla DeFi</h2>
+<p class="lead">Scopri cosa rende la finanza decentralizzata (DeFi) una delle aree più promettenti della blockchain.</p>
+<a class="btn btn-learn-more" href="defi.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
+</div>
+</div>
+<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
+<h2 class="section-header mb-4">ErgOne: Crescita Organica dal Basso</h2>
+<p class="lead">Scopri ErgOne e come stia promuovendo una crescita decentralizzata all'interno dell'ecosistema Ergo.</p>
+<a class="btn btn-learn-more" href="ergone.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
+</div>
+</div>
+<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
+<h2 class="section-header mb-4">Comprendere Ergo, $Erg e i suoi token nativi</h2>
+<p class="lead">$ERG è il gettone nativo della piattaforma Ergo, usato per pagare le commissioni, nella DeFi e nel mining.</p>
+<a class="btn btn-learn-more" href="token.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
+</div>
+</div>
+<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
+<h2 class="section-header mb-4">Sicurezza nelle Criptovalute</h2>
+<p class="lead">Impara le migliori pratiche per proteggere i tuoi fondi e mantenere le tue criptovalute al sicuro.</p>
+<a class="btn btn-learn-more" href="security.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
+</div>
+</div>
+<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
+<h2 class="section-header mb-4">Configurare un Wallet Ergo</h2>
+<p class="lead">Esplora le opzioni di wallet su Ergo e le migliori pratiche di sicurezza.</p>
+<a class="btn btn-learn-more" href="wallet.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
+</div>
+</div>
+<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
+<h2 class="section-header mb-4">NFT e Arte Digitale</h2>
+<p class="lead">Approfondisci il fenomeno degli NFT e scopri come stanno rivoluzionando il mondo dell'arte digitale.</p>
+<a class="btn btn-learn-more" href="nft.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
+</div>
+</div>
+<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
+<h2 class="section-header mb-4">Gli Smart Contract su Ergo</h2>
+<p class="lead">ErgoScript consente la creazione di contratti sicuri per applicazioni DeFi avanzate.</p>
+<a class="btn btn-learn-more" href="smart-contracts.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
+</div>
+</div>
+<div class="grid-item" onclick="expandSection(this)" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+<div class="content" style="padding: 1rem; display: flex; flex-direction: column; justify-content: space-around; height: 100%;">
+<h2 class="section-header mb-4">Mining su Ergo: Accessibilità e Efficienza</h2>
+<p class="lead">Scopri l'algoritmo Autolykos v2, progettato per un mining sostenibile su Ergo.</p>
+<a class="btn btn-learn-more" href="mining.html" style="align-self: flex-end; margin-top: auto;">Scopri di più</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="p-3 bg-dark text-white text-center">
+<p>© 2023 Powered By Ergo Platform Italian Ecosystem</p>
+</footer>
+<script async="" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script async="" src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
     AOS.init();
 
     function expandSection(element) {
@@ -134,4 +122,3 @@
   </script>
 </body>
 </html>
-

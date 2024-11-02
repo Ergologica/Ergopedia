@@ -1,76 +1,60 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Gli Smart Contract su Ergo: scopri come utilizzare ErgoScript per creare contratti sicuri su blockchain.">
-  <title>Smart Contract su Ergo - Ergopedia</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Gli Smart Contract su Ergo: scopri come utilizzare ErgoScript per creare contratti sicuri su blockchain." name="description"/>
+<title>Smart Contract su Ergo - Ergopedia</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
 </head>
 <body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
+<!-- Navbar -->
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="img/ergo_logo.png" alt="Logo della piattaforma blockchain Ergo" height="30"> Ergo Platform Italia
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="wallet.html">Wallet</a></li>
-          <li class="nav-item"><a class="nav-link" href="token.html">Token ERG</a></li>
-          <li class="nav-item"><a class="nav-link" href="smart-contracts.html">Smart Contracts</a></li>
-          <li class="nav-item"><a class="nav-link" href="mining.html">Mining</a></li>
-          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <button class="btn btn-secondary" id="themeToggle">Toggle Theme</button>
-    </div>
-  </nav>
+<nav style="background-color: #f8f9fa; padding: 10px;">
+<ul style="list-style: none; display: flex; align-items: center; padding: 0; margin: 0;">
+<li style="margin-right: 20px;">
+<a href="index.html"><img alt="Ergopedia Logo" src="img/ergo_logo.png" style="height: 40px; vertical-align: middle;"/></a>
+</li>
+<li><a href="index.html" style="text-decoration: none; color: #333; margin-right: 15px;">Home</a></li>
+<li><a href="history.html" style="text-decoration: none; color: #333; margin-right: 15px;">Storia</a></li>
+<li><a href="manifesto.html" style="text-decoration: none; color: #333;">Manifesto</a></li>
+</ul>
+</nav>
 
-  <!-- Contenuto principale -->
-  <div class="container p-5">
-    <div class="bg-overlay">
-      <h1>Gli Smart Contract su Ergo</h1>
-      <p>Ergo supporta una gamma avanzata di smart contract attraverso <strong>ErgoScript</strong>, un linguaggio potente basato su Scala. ErgoScript si basa sul modello eUTXO, garantendo transazioni efficienti, sicure e accessibili, con una struttura che rende possibile l’uso di script complessi e innovativi per le applicazioni DeFi.</p>
-
-      <h2>Caratteristiche Uniche di ErgoScript</h2>
-      <ul>
-        <li><strong>Sigma Protocols:</strong> ErgoScript utilizza Sigma Protocols, che supportano la creazione di transazioni basate su zero-knowledge proofs. Queste permettono contratti privati e sicuri, come le <a href="https://nipopows.com" target="_blank">NiPoPoW</a> e le firme ad anello, senza necessità di infrastrutture centralizzate.</li>
-        <li><strong>Struttura UTXO Estesa:</strong> Il modello eUTXO permette contratti più complessi, come i contratti multi-stage e quelli a tempo (time-locked), ampliando la gamma di applicazioni possibili, dai prestiti alla gestione di proprietà digitali.</li>
-      </ul>
-
-      <h2>Applicazioni di Smart Contract su Ergo</h2>
-      <p>Grazie a ErgoScript, la piattaforma può ospitare una vasta gamma di applicazioni, tra cui:</p>
-      <ul>
-        <li><a href="https://sigmausd.io" target="_blank">SigmaUSD</a>: Uno stablecoin algoritmico che garantisce un valore stabile ancorato al dollaro, utilizzando ERG come riserva.</li>
-        <li><a href="https://mart.mewfinance.com/" target="_blank">MewFinance</a>: Un market P2P, P2B totalmente decentralizzato. Servizio Escrow e Vendita in blocco</li>
-        <li><a href="https://explorer.ergoplatform.com" target="_blank">Oracle Pools</a>: Pool decentralizzati che offrono dati sicuri e verificabili per contratti finanziari e DeFi.</li>
-        <li><a href="https://ergodex.io" target="_blank">ErgoDEX</a>: Un exchange decentralizzato che supporta transazioni sicure e private su Ergo, grazie a NiPoPoW, high fee dex.</li>
-        <li><a href="https://ergdex.com" target="_blank">ErgDEX</a>: Un exchange decentralizzato che supporta transazioni sicure e private su Ergo, no fee dex.</li>
-        <li><a href="https://dex.crooks-fi.com/ergo/swap?base=0000000000000000000000000000000000000000000000000000000000000000" target="_blank">CrooksFi DEX</a>: Un exchange decentralizzato che supporta transazioni sicure e private su Ergo, mid fee dex.</li>
-      </ul>
-
-      <h2>Perché Scegliere Ergo per i tuoi Contratti Intelligenti</h2>
-      <p>Ergo offre un ambiente ideale per la creazione di dApp sicure e flessibili. Con la documentazione dettagliata e un sandbox per ErgoScript, sviluppatori di ogni livello possono creare contratti intuitivi e robusti. Inizia a esplorare <a href="https://docs.ergoplatform.com/documents/" target="_blank">ErgoScript e i suoi strumenti</a> per scoprire come Ergo può supportare il tuo prossimo progetto blockchain.</p>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="p-3 bg-dark text-white text-center">
-    <p>&copy; 2023 Powered By Ergo Platform Italian Ecosystem</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" async></script>
-  <script>
+<!-- Contenuto principale -->
+<div class="container p-5">
+<div class="bg-overlay">
+<h1>Gli Smart Contract su Ergo</h1>
+<p>Ergo supporta una gamma avanzata di smart contract attraverso <strong>ErgoScript</strong>, un linguaggio potente basato su Scala. ErgoScript si basa sul modello eUTXO, garantendo transazioni efficienti, sicure e accessibili, con una struttura che rende possibile l’uso di script complessi e innovativi per le applicazioni DeFi.</p>
+<h2>Caratteristiche Uniche di ErgoScript</h2>
+<ul>
+<li><strong>Sigma Protocols:</strong> ErgoScript utilizza Sigma Protocols, che supportano la creazione di transazioni basate su zero-knowledge proofs. Queste permettono contratti privati e sicuri, come le <a href="https://nipopows.com" target="_blank">NiPoPoW</a> e le firme ad anello, senza necessità di infrastrutture centralizzate.</li>
+<li><strong>Struttura UTXO Estesa:</strong> Il modello eUTXO permette contratti più complessi, come i contratti multi-stage e quelli a tempo (time-locked), ampliando la gamma di applicazioni possibili, dai prestiti alla gestione di proprietà digitali.</li>
+</ul>
+<h2>Applicazioni di Smart Contract su Ergo</h2>
+<p>Grazie a ErgoScript, la piattaforma può ospitare una vasta gamma di applicazioni, tra cui:</p>
+<ul>
+<li><a href="https://sigmausd.io" target="_blank">SigmaUSD</a>: Uno stablecoin algoritmico che garantisce un valore stabile ancorato al dollaro, utilizzando ERG come riserva.</li>
+<li><a href="https://mart.mewfinance.com/" target="_blank">MewFinance</a>: Un market P2P, P2B totalmente decentralizzato. Servizio Escrow e Vendita in blocco</li>
+<li><a href="https://explorer.ergoplatform.com" target="_blank">Oracle Pools</a>: Pool decentralizzati che offrono dati sicuri e verificabili per contratti finanziari e DeFi.</li>
+<li><a href="https://ergodex.io" target="_blank">ErgoDEX</a>: Un exchange decentralizzato che supporta transazioni sicure e private su Ergo, grazie a NiPoPoW, high fee dex.</li>
+<li><a href="https://ergdex.com" target="_blank">ErgDEX</a>: Un exchange decentralizzato che supporta transazioni sicure e private su Ergo, no fee dex.</li>
+<li><a href="https://dex.crooks-fi.com/ergo/swap?base=0000000000000000000000000000000000000000000000000000000000000000" target="_blank">CrooksFi DEX</a>: Un exchange decentralizzato che supporta transazioni sicure e private su Ergo, mid fee dex.</li>
+</ul>
+<h2>Perché Scegliere Ergo per i tuoi Contratti Intelligenti</h2>
+<p>Ergo offre un ambiente ideale per la creazione di dApp sicure e flessibili. Con la documentazione dettagliata e un sandbox per ErgoScript, sviluppatori di ogni livello possono creare contratti intuitivi e robusti. Inizia a esplorare <a href="https://docs.ergoplatform.com/documents/" target="_blank">ErgoScript e i suoi strumenti</a> per scoprire come Ergo può supportare il tuo prossimo progetto blockchain.</p>
+</div>
+</div>
+<!-- Footer -->
+<footer class="p-3 bg-dark text-white text-center">
+<p>© 2023 Powered By Ergo Platform Italian Ecosystem</p>
+</footer>
+<script async="" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script async="" src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
     AOS.init();
 
     // Theme Toggle Functionality with Local Storage
@@ -98,4 +82,3 @@
   </script>
 </body>
 </html>
-
