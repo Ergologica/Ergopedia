@@ -19,7 +19,7 @@
     --spacing-small: 0.5rem;
 }
 
-/* === Global Styles === */
+/* === Global Styles ===*/
 body {
     font-family: var(--font-family-base);
     color: var(--color-text-light);
