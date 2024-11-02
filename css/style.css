@@ -159,66 +159,70 @@ body.dark-mode {
 
 /* Grid Container */
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    align-items: stretch;
 }
 
 /* Grid Item */
 .grid-item {
-  background-color: var(--color-overlay-light);
-  border-radius: 12px;
-  box-shadow: var(--box-shadow-light);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
+    background-color: var(--color-overlay-light);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
 }
 
 .grid-item:hover {
-  transform: scale(1.03);
-  box-shadow: var(--box-shadow-hover);
+    transform: scale(1.03);
+    box-shadow: var(--box-shadow-hover);
 }
 
 /* Content Styling */
 .content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 /* Section Header */
 .section-header {
-  font-size: 1.75rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 1rem;
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
 }
 
-/* Paragraph Styling */
-.content p {
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+/* Content Text */
+.content-text {
+    color: #555;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1rem;
 }
 
 /* Learn More Button */
 .btn-learn-more {
-  align-self: flex-start;
-  color: #fff;
-  background-color: var(--color-button-bg);
-  border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: flex-start;
+    color: #fff;
+    background-color: var(--color-button-bg);
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn-learn-more:hover {
-  background-color: var(--color-button-bg-hover);
-  transform: translateY(-3px);
+    background-color: var(--color-button-bg-hover);
+    transform: translateY(-3px);
 }
 
 /* Footer ancorato ai piedi della pagina */
