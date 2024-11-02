@@ -80,11 +80,11 @@ body.dark-mode {
     color: #ffffff;
 }
 
-/* === Navbar Styles === */
+/* === Compact Navbar Styles === */
 .navbar {
     background-color: var(--color-navbar-light);
     box-shadow: var(--box-shadow-navbar);
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -94,19 +94,20 @@ body.dark-mode {
 }
 
 .navbar-brand .brand-logo {
-    height: 40px;
+    height: 30px; /* Reduced size */
     width: auto;
     transition: transform 0.3s ease;
 }
 
 .navbar-brand .brand-logo:hover {
-    transform: scale(1.1);
+    transform: scale(1.05); /* Slight hover effect */
 }
 
 .navbar .nav-link {
-    color: #555;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
+    color: #444; /* Darkened link color for better readability */
+    font-size: 0.9rem; /* Reduced font size */
+    padding: 0.4rem 0.8rem;
+    font-weight: 500; /* Make text slightly bolder for better readability */
     transition: color 0.3s ease;
 }
 
@@ -124,10 +125,10 @@ body.dark-mode {
 }
 
 .navbar .nav-logo {
-    height: 40px;
-    width: 40px;
+    height: 30px; /* Reduced size */
+    width: 30px;
     border-radius: 50%;
-    border: 2px solid #333;
+    border: 1px solid #333;
     transition: border-color 0.3s ease;
 }
 
@@ -135,13 +136,19 @@ body.dark-mode {
     border-color: var(--color-link-hover);
 }
 
-/* Responsive adjustments for smaller screens */
+/* Responsive adjustments for even smaller screens */
 @media (max-width: 768px) {
     .navbar {
-        padding: 0.5rem;
+        padding: 0.4rem 0.8rem;
     }
     .navbar .nav-link {
-        padding: 0.5rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+    }
+    .navbar-brand .brand-logo,
+    .navbar .nav-logo {
+        height: 25px; /* Further reduce for mobile */
+        width: 25px;
     }
 }
 
