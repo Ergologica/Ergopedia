@@ -29,13 +29,11 @@ body {
     flex-direction: column;
 }
 
-/* Dark Mode */
 body.dark-mode {
     color: var(--color-text-dark);
     background-color: var(--color-background-dark);
 }
 
-/* Background Image (Light & Dark Modes) */
 body.light-mode,
 body.dark-mode {
     background-image: url("../img/background.webp");
@@ -44,8 +42,7 @@ body.dark-mode {
     background-position: center;
 }
 
-/* === Layout and Structure === */
-/* Navbar */
+/* === Navbar === */
 .navbar {
     background-color: var(--color-navbar-light);
     box-shadow: var(--box-shadow-navbar);
@@ -83,8 +80,59 @@ body.dark-mode {
     color: #ffffff;
 }
 
-/* === Sections and Content === */
-/* Section Headers */
+/* === Hero Section === */
+.hero-section {
+    background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), url("../img/background.webp") center/cover no-repeat;
+    color: #ffffff;
+    text-align: center;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-small);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-base);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section .btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background-color: var(--color-button-bg);
+    color: #ffffff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-section .btn:hover {
+    background-color: var(--color-button-bg-hover);
+    transform: translateY(-3px);
+}
+
+body.dark-mode .hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/background.webp") center/cover no-repeat;
+}
+
+body.dark-mode .hero-section h1,
+body.dark-mode .hero-section p {
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* === Section Headers === */
 .section-header {
     font-size: 1.75rem;
     font-weight: bold;
@@ -96,7 +144,7 @@ body.dark-mode {
     color: var(--color-text-dark);
 }
 
-/* Overlay Containers */
+/* === Overlay Containers === */
 .bg-overlay {
     background-color: var(--color-overlay-light);
     box-shadow: var(--box-shadow-light);
@@ -116,7 +164,6 @@ body.dark-mode {
     box-shadow: var(--box-shadow-hover);
 }
 
-/* Text Content */
 .bg-overlay p,
 .bg-overlay ul li {
     line-height: 1.6;
@@ -126,7 +173,7 @@ body.dark-mode {
     padding-left: 1.5rem;
 }
 
-/* Links */
+/* === Links === */
 .bg-overlay a {
     color: var(--color-link-hover);
     text-decoration: underline;
@@ -167,7 +214,7 @@ body.dark-mode {
     box-shadow: var(--box-shadow-hover);
 }
 
-/* Content Area */
+/* === Content Area === */
 .content {
     display: flex;
     flex-direction: column;
@@ -175,7 +222,6 @@ body.dark-mode {
     height: 100%;
 }
 
-/* Content Text */
 .content-text {
     color: #555;
     line-height: 1.6;
@@ -307,5 +353,14 @@ footer {
     .navbar {
         padding: 0.25rem 0.5rem;
     }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
 }
+
 
