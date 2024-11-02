@@ -8,90 +8,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
-    <style>
-        /* Chat Icon */
-        .chat-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: url('img/ergo_logo.png') center/cover no-repeat;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        /* Chat Window */
-        .chat-window {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            width: 300px;
-            max-height: 400px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            background-color: #f8f9fa;
-            display: none; /* Hidden by default */
-            flex-direction: column;
-            z-index: 1001;
-        }
-
-        .chat-window-header {
-            padding: 10px;
-            background-color: #333;
-            color: white;
-            font-weight: bold;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            text-align: center;
-        }
-
-        .chat-window-body {
-            flex-grow: 1;
-            padding: 10px;
-            overflow-y: auto;
-        }
-
-        .chat-window-footer {
-            padding: 10px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .chat-input {
-            flex-grow: 1;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            padding: 5px;
-        }
-
-        .send-btn {
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body class="light-mode" style="display: flex; flex-direction: column; min-height: 100vh;">
 
 <!-- Navbar -->
-<nav style="background-color: #f8f9fa; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+<nav class="navbar" style="display: flex; justify-content: space-between; align-items: center;">
     <ul style="list-style: none; display: flex; align-items: center; padding: 0; margin: 0;">
         <li style="margin-right: 20px;">
             <a href="index.html"><img src="img/ergo_logo.png" alt="Ergopedia Logo" style="height: 40px; vertical-align: middle;"/></a>
         </li>
-        <li><a href="index.html" style="text-decoration: none; color: #333; margin-right: 15px;">Home</a></li>
-        <li><a href="history.html" style="text-decoration: none; color: #333; margin-right: 15px;">Storia</a></li>
-        <li><a href="manifesto.html" style="text-decoration: none; color: #333;">Manifesto</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="history.html" class="nav-link">Storia</a></li>
+        <li><a href="manifesto.html" class="nav-link">Manifesto</a></li>
     </ul>
     <ul style="list-style: none; display: flex; align-items: center; padding: 0; margin: 0;">
         <li style="margin-right: 15px;">
-            <a href="hunt.html" style="text-decoration: none;">
+            <a href="hunt.html" class="nav-link">
                 <img src="img/hunt.webp" alt="Hunt Logo" style="height: 40px; width: 40px; border-radius: 50%; border: 2px solid #333;"/>
             </a>
         </li>
@@ -108,50 +40,50 @@
 </section>
 
 <!-- Grid of Sections -->
-<section class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem;">
-    <div class="grid-item" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+<section class="grid-container">
+    <div class="grid-item">
         <div class="content" style="padding: 1rem; height: 100%;">
             <h2 class="section-header mb-4">Introduzione alla DeFi</h2>
             <p class="lead">Scopri cosa rende la finanza decentralizzata (DeFi) una delle aree più promettenti della blockchain.</p>
             <a class="btn btn-learn-more" href="defi.html">Scopri di più</a>
         </div>
     </div>
-    <div class="grid-item" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+    <div class="grid-item">
         <div class="content" style="padding: 1rem; height: 100%;">
             <h2 class="section-header mb-4">ErgOne: Crescita Organica dal Basso</h2>
             <p class="lead">Scopri ErgOne e come stia promuovendo una crescita decentralizzata nell'ecosistema Ergo.</p>
             <a class="btn btn-learn-more" href="ergone.html">Scopri di più</a>
         </div>
     </div>
-    <div class="grid-item" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+    <div class="grid-item">
         <div class="content" style="padding: 1rem; height: 100%;">
             <h2 class="section-header mb-4">Sicurezza nelle Criptovalute</h2>
             <p class="lead">Impara le migliori pratiche per proteggere i tuoi fondi e mantenere le tue criptovalute al sicuro.</p>
             <a class="btn btn-learn-more" href="security.html">Scopri di più</a>
         </div>
     </div>
-    <div class="grid-item" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+    <div class="grid-item">
         <div class="content" style="padding: 1rem; height: 100%;">
             <h2 class="section-header mb-4">Configurare un Wallet Ergo</h2>
             <p class="lead">Esplora le opzioni di wallet su Ergo e le migliori pratiche di sicurezza.</p>
             <a class="btn btn-learn-more" href="wallet.html">Scopri di più</a>
         </div>
     </div>
-    <div class="grid-item" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+    <div class="grid-item">
         <div class="content" style="padding: 1rem; height: 100%;">
             <h2 class="section-header mb-4">NFT e Arte Digitale</h2>
             <p class="lead">Approfondisci il fenomeno degli NFT e scopri come stanno rivoluzionando il mondo dell'arte digitale.</p>
             <a class="btn btn-learn-more" href="nft.html">Scopri di più</a>
         </div>
     </div>
-    <div class="grid-item" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+    <div class="grid-item">
         <div class="content" style="padding: 1rem; height: 100%;">
             <h2 class="section-header mb-4">Gli Smart Contract su Ergo</h2>
             <p class="lead">ErgoScript consente la creazione di contratti sicuri per applicazioni DeFi avanzate.</p>
             <a class="btn btn-learn-more" href="smart-contracts.html">Scopri di più</a>
         </div>
     </div>
-    <div class="grid-item" style="border: 1px solid #ddd; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+    <div class="grid-item">
         <div class="content" style="padding: 1rem; height: 100%;">
             <h2 class="section-header mb-4">Mining su Ergo: Accessibilità e Efficienza</h2>
             <p class="lead">Scopri l'algoritmo Autolykos v2, progettato per un mining sostenibile su Ergo.</p>
@@ -174,6 +106,11 @@
         <button class="send-btn" onclick="sendMessage()">Invia</button>
     </div>
 </div>
+
+<!-- Footer -->
+<footer class="p-3 bg-dark text-white text-center">
+    <p>© 2023 Powered By Ergo Platform Italian Ecosystem</p>
+</footer>
 
 <script>
     // Toggle chat window visibility
