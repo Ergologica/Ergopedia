@@ -81,9 +81,10 @@ body.dark-mode {
 }
 
 /* === Hero Section === */
+/* === Hero Section === */
 .hero-section {
-    background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), url("../img/background.webp") center/cover no-repeat;
-    color: #ffffff;
+    background: linear-gradient(rgba(30, 30, 60, 0.8), rgba(30, 30, 60, 0.8)), url("../img/background.webp") center/cover no-repeat;
+    color: #f5f5f5;
     text-align: center;
     padding: 4rem 2rem;
     display: flex;
@@ -98,7 +99,8 @@ body.dark-mode {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: var(--spacing-small);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: #ffeb3b; /* Updated color for improved contrast */
 }
 
 .hero-section p {
@@ -107,29 +109,44 @@ body.dark-mode {
     line-height: 1.6;
     margin-bottom: var(--spacing-base);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    color: #e0e0e0;
 }
 
 .hero-section .btn {
     font-size: 1rem;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
-    background-color: var(--color-button-bg);
-    color: #ffffff;
+    background-color: #ff9800; /* Updated button color for better visibility */
+    color: #212121;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero-section .btn:hover {
-    background-color: var(--color-button-bg-hover);
+    background-color: #fb8c00; /* Slightly lighter shade for hover effect */
     transform: translateY(-3px);
 }
 
+/* Dark Mode Adjustments */
 body.dark-mode .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/background.webp") center/cover no-repeat;
+    background: linear-gradient(rgba(10, 10, 20, 0.8), rgba(10, 10, 20, 0.8)), url("../img/background.webp") center/cover no-repeat;
 }
 
-body.dark-mode .hero-section h1,
+body.dark-mode .hero-section h1 {
+    color: #ffca28; /* Yellow for contrast in dark mode */
+}
+
 body.dark-mode .hero-section p {
-    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
+    color: #c7c7c7;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .hero-section .btn {
+    background-color: #ff9800;
+    color: #ffffff;
+}
+
+body.dark-mode .hero-section .btn:hover {
+    background-color: #ffa726;
 }
 
 /* === Section Headers === */
