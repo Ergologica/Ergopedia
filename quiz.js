@@ -1,9 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
     const startButton = document.getElementById("startButton");
+    const connectWalletButton = document.getElementById("connectWalletButton"); // New wallet connect button
+
     if (startButton) {
         startButton.addEventListener("click", startQuiz);
     }
-    updateScoreDisplay(); // Inizializza la visualizzazione del punteggio
+
+    if (connectWalletButton) {
+        connectWalletButton.addEventListener("click", connectWallet);
+    }
+
+    updateScoreDisplay(); // Initialize score display
 });
 
 const quiz_questions = {
@@ -69,15 +76,42 @@ const quiz_questions = {
     }
 };
 
+
 let questionKeys = Object.keys(quiz_questions);
 let currentQuestionIndex = 0;
 let correctAnswers = 0;
+let walletConnected = false; // Track wallet connection status
+
+// Connect to the wallet using Ergo dApp Connector
+async function connectWallet() {
+    if (typeof ergo === "undefined") {
+        alert("Wallet non trovato. Assicurati di avere Nautilus o un altro wallet compatibile con Ergo.");
+        return;
+    }
+
+    try {
+        await ergoConnector.nautilus.connect(); // Connect to Nautilus
+        const address = await ergo.get_change_address(); // Get the primary address
+
+        walletConnected = true;
+        document.getElementById("walletStatus").textContent = `Wallet connesso: ${address}`;
+        console.log("Wallet connesso con successo:", address);
+    } catch (error) {
+        console.error("Errore di connessione al wallet:", error);
+        alert("Errore durante la connessione al wallet.");
+    }
+}
 
 function startQuiz() {
+    if (!walletConnected) {
+        alert("Per iniziare il quiz, collega prima il tuo wallet Ergo.");
+        return;
+    }
+
     currentQuestionIndex = 0;
-    correctAnswers = 0; // Reimposta il punteggio all'inizio
-    shuffleQuestions(); // Mescola l'ordine delle domande
-    updateScoreDisplay(); // Aggiorna la visualizzazione del punteggio a 0
+    correctAnswers = 0; // Reset score on start
+    shuffleQuestions(); // Shuffle question order
+    updateScoreDisplay(); // Update the score display to show 0
 
     const startButton = document.getElementById("startButton");
     if (startButton) {
@@ -92,7 +126,7 @@ function startQuiz() {
     showNextQuestion();
 }
 
-// Funzione per mescolare le domande in modo casuale
+// Function to shuffle the questions randomly
 function shuffleQuestions() {
     questionKeys = questionKeys.sort(() => Math.random() - 0.5);
 }
@@ -141,7 +175,7 @@ function checkAnswer(questionKey, userAnswer) {
 
     if (correctAnswer.toLowerCase() === userAnswer.toLowerCase()) {
         correctAnswers++;
-        updateScoreDisplay(); // Aggiorna la visualizzazione del punteggio per una risposta corretta
+        updateScoreDisplay(); // Update score display for a correct answer
         showFeedback(true);
         showNextQuestion();
     } else {
@@ -152,9 +186,9 @@ function checkAnswer(questionKey, userAnswer) {
 
 function restartQuiz() {
     alert("Risposta errata. Il quiz verrà riavviato.");
-    correctAnswers = 0; // Reimposta il punteggio al riavvio
-    updateScoreDisplay(); // Aggiorna la visualizzazione del punteggio a 0
-    startQuiz(); // Riavvia il quiz
+    correctAnswers = 0; // Reset score on restart
+    updateScoreDisplay(); // Update the score display to show 0
+    startQuiz(); // Reset the quiz
 }
 
 function showResult() {
@@ -182,5 +216,3 @@ function updateScoreDisplay() {
         scoreDisplay.textContent = `Punteggio Corrente: ${correctAnswers}`;
     }
 }
-
-
