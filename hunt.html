@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Caccia al tesoro nell'ecosistema blockchain di Ergo: scopri Sigmaverse, approfondisci la DeFi e la sicurezza blockchain. Ogni livello esplora tematiche diverse per espandere la tua conoscenza su Ergo."/>
+    <meta name="description" content="Caccia al tesoro nell'ecosistema blockchain di Ergo."/>
     <title>Ergopedia - Caccia al Tesoro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
@@ -14,9 +14,6 @@
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
             color: #2c2c2c;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
             transition: background-color 0.5s ease;
         }
         body.dark-mode {
@@ -24,7 +21,7 @@
             color: #e0e0e0;
         }
 
-        /* Navbar */
+        /* Navbar Compatta */
         .navbar {
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -32,23 +29,37 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            padding: 0.5rem 1rem; /* Altezza ridotta */
         }
-        .navbar .navbar-toggler-icon {
-            filter: invert(1);
+        .navbar .navbar-brand {
+            display: flex;
+            align-items: center;
         }
-        .navbar-dark-mode {
-            background-color: #333;
+        .navbar-brand img {
+            height: 30px; /* Logo più piccolo */
+            margin-right: 0.5rem;
         }
-        .navbar a {
+        .navbar-nav {
+            flex-direction: row; /* Disposizione su una linea */
+        }
+        .navbar-nav .nav-item {
+            margin-right: 1rem;
+        }
+        .navbar-nav .nav-link {
+            padding: 0.5rem 0;
             color: #2c2c2c;
+            transition: color 0.3s ease;
         }
-        .navbar a:hover {
+        .navbar-nav .nav-link:hover {
             color: #ff8c00;
         }
-        .navbar .wallet-status {
+
+        /* Wallet e Toggle Modalità */
+        .wallet-status {
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 0.9rem;
         }
         .wallet-status .status-icon {
             width: 10px;
@@ -59,76 +70,67 @@
         .wallet-status.connected .status-icon {
             background-color: #00c853;
         }
-
-        /* Container Principale */
-        .container {
-            padding-top: 80px;
-        }
-
-        /* Treasure Hunt Container */
-        .treasure-hunt-container {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 3rem;
-            border-radius: 10px;
-            margin: 2rem auto;
-            transition: all 0.5s ease;
-            max-width: 800px;
-        }
-        body.dark-mode .treasure-hunt-container {
-            background-color: rgba(60, 60, 60, 0.95);
-        }
-
-        /* Modalità Chiara/Scura Toggle */
         .theme-toggle {
             cursor: pointer;
-            position: absolute;
-            right: 20px;
-            top: 20px;
+            margin-left: 1rem;
         }
 
-        /* Bottoni Quiz */
-        .btn-quiz {
-            font-size: 1.2rem;
-            padding: 0.6rem 1.2rem;
-            margin-top: 1rem;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .btn-quiz:hover {
-            transform: scale(1.05);
-            background-color: #ff8c00;
-        }
-
-        /* Barra di Avanzamento */
-        .progress {
-            height: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                background-color: #ffffff;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem;
+                display: none;
+            }
+            .navbar-toggler {
+                border: none;
+                background-color: transparent;
+            }
+            .navbar-toggler-icon {
+                width: 30px;
+                height: 3px;
+                background-color: #333;
+                display: block;
+                position: relative;
+                transition: background-color 0.3s;
+            }
+            .navbar-toggler-icon::before,
+            .navbar-toggler-icon::after {
+                content: '';
+                position: absolute;
+                width: 30px;
+                height: 3px;
+                background-color: #333;
+                transition: transform 0.3s;
+            }
+            .navbar-toggler-icon::before {
+                top: -8px;
+            }
+            .navbar-toggler-icon::after {
+                bottom: -8px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="img/ergo_logo.png" alt="Ergopedia Logo" style="height: 40px;">
+                <img src="img/ergo_logo.png" alt="Ergopedia Logo">
+                Ergopedia
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Storia</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Manifesto</a></li>
@@ -142,17 +144,9 @@
     </nav>
 
     <!-- Container Principale -->
-    <div class="container text-center">
+    <div class="container text-center" style="padding-top: 80px;">
         <div class="treasure-hunt-container" id="treasureHuntContainer">
             <h1 id="levelHeader">Caccia al Tesoro: Quiz su Ergo</h1>
-            <div class="progress">
-                <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
-            </div>
-            <div id="quizContainer" style="display:none;">
-                <div id="scoreDisplay">Punteggio Corrente: 0</div>
-                <p id="questionText"></p>
-                <div id="answerOptions"></div>
-            </div>
             <button id="connectWalletButton" class="btn-quiz">Connetti Wallet</button>
             <button id="startButton" class="btn-quiz">Inizia il Quiz</button>
             <p id="resultText" style="margin-top: 20px;"></p>
@@ -166,41 +160,19 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        AOS.init();
+        // Gestione Navbar Mobile
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        navbarToggler.addEventListener('click', () => {
+            navbarCollapse.classList.toggle('show');
+        });
 
-        // Theme Toggle
+        // Gestione Toggle Tema
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
         });
-
-        // Wallet Connection Logic
-        async function connectWallet() {
-            if (typeof ergoConnector === "undefined" || typeof ergoConnector.nautilus === "undefined") {
-                alert("Wallet non trovato. Assicurati di avere Nautilus o un altro wallet compatibile con Ergo.");
-                return;
-            }
-
-            try {
-                await ergoConnector.nautilus.connect();
-                const address = await ergo.get_change_address();
-                document.getElementById("walletStatusText").textContent = `Connesso: ${address}`;
-                document.getElementById("walletStatus").classList.add("connected");
-            } catch (error) {
-                alert("Errore durante la connessione al wallet.");
-            }
-        }
-
-        document.getElementById("connectWalletButton").addEventListener("click", connectWallet);
-
-        // Quiz Progress Logic
-        function updateProgressBar() {
-            const progress = (currentQuestionIndex / quiz_questions.length) * 100;
-            document.getElementById("progressBar").style.width = progress + "%";
-        }
     </script>
 </body>
 </html>
-
