@@ -1,124 +1,206 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Caccia al tesoro nell'ecosistema blockchain di Ergo: scopri Sigmaverse, approfondisci la DeFi e la sicurezza blockchain. Ogni livello esplora tematiche diverse per espandere la tua conoscenza su Ergo." name="description"/>
-<title>Ergopedia - Caccia al Tesoro</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="css/style.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
-<style>
-    /* Stili Base */
-    body {
-      font-family: Arial, sans-serif;
-      color: #2c2c2c;
-      background-color: #f8f9fa;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    /* Background Image */
-    body.light-mode {
-      background-image: url("img/background.webp");
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-    }
-    body.dark-mode {
-      background-image: url("img/background.webp");
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: #e0e0e0;
-    }
-    /* Container Centrale */
-    .treasure-hunt-container {
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      padding: 3rem;
-      border-radius: 10px;
-      width: 100%;
-      max-width: 800px;
-      margin: 2rem auto;
-      transition: all 0.5s ease;
-    }
-    .dark-mode .treasure-hunt-container {
-      background-color: rgba(60, 60, 60, 0.95);
-      color: #e0e0e0;
-    }
-    /* Header Livelli */
-    .level-header {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ff8c00;
-      margin-bottom: 1.5rem;
-    }
-    .dark-mode .level-header {
-      color: #ffa500;
-    }
-    /* Quiz Styles */
-    .quiz-container {
-      margin-top: 1.5rem;
-    }
-    .btn-quiz {
-      margin-top: 1rem;
-    }
-    .answerOption {
-      display: block;
-      margin: 5px 0;
-      padding: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .answerOption:hover {
-      background-color: #f1f1f1;
-    }
-</style>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Caccia al tesoro nell'ecosistema blockchain di Ergo: scopri Sigmaverse, approfondisci la DeFi e la sicurezza blockchain. Ogni livello esplora tematiche diverse per espandere la tua conoscenza su Ergo."/>
+    <title>Ergopedia - Caccia al Tesoro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+    <style>
+        /* Stili di base */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #2c2c2c;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.5s ease;
+        }
+        body.dark-mode {
+            background-color: #181818;
+            color: #e0e0e0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .navbar-toggler-icon {
+            filter: invert(1);
+        }
+        .navbar-dark-mode {
+            background-color: #333;
+        }
+        .navbar a {
+            color: #2c2c2c;
+        }
+        .navbar a:hover {
+            color: #ff8c00;
+        }
+        .navbar .wallet-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .wallet-status .status-icon {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+        }
+        .wallet-status.connected .status-icon {
+            background-color: #00c853;
+        }
+
+        /* Container Principale */
+        .container {
+            padding-top: 80px;
+        }
+
+        /* Treasure Hunt Container */
+        .treasure-hunt-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 3rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            transition: all 0.5s ease;
+            max-width: 800px;
+        }
+        body.dark-mode .treasure-hunt-container {
+            background-color: rgba(60, 60, 60, 0.95);
+        }
+
+        /* Modalità Chiara/Scura Toggle */
+        .theme-toggle {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        /* Bottoni Quiz */
+        .btn-quiz {
+            font-size: 1.2rem;
+            padding: 0.6rem 1.2rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-quiz:hover {
+            transform: scale(1.05);
+            background-color: #ff8c00;
+        }
+
+        /* Barra di Avanzamento */
+        .progress {
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+    </style>
 </head>
-<body class="light-mode">
-<!-- Navbar -->
-<nav style="background-color: #f8f9fa; padding: 10px;">
-    <ul style="list-style: none; display: flex; align-items: center; padding: 0; margin: 0;">
-        <li style="margin-right: 20px;">
-            <a href="index.html"><img alt="Ergopedia Logo" src="img/ergo_logo.png" style="height: 40px; vertical-align: middle;"/></a>
-        </li>
-        <li><a href="index.html" style="text-decoration: none; color: #333; margin-right: 15px;">Home</a></li>
-        <li><a href="history.html" style="text-decoration: none; color: #333; margin-right: 15px;">Storia</a></li>
-        <li><a href="manifesto.html" style="text-decoration: none; color: #333;">Manifesto</a></li>
-    </ul>
-</nav>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="img/ergo_logo.png" alt="Ergopedia Logo" style="height: 40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Storia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Manifesto</a></li>
+                </ul>
+                <div class="wallet-status" id="walletStatus">
+                    <span class="status-icon"></span> <span id="walletStatusText">Non Connesso</span>
+                </div>
+                <img src="img/theme_toggle.png" alt="Toggle Theme" class="theme-toggle" id="themeToggle">
+            </div>
+        </div>
+    </nav>
 
-<!-- Wallet Connect Section -->
-<div class="container text-center my-4">
-    <button id="connectWalletButton" class="btn btn-primary">Connetti Wallet</button>
-    <p id="walletStatus" style="margin-top: 10px;">Stato Wallet: Non Connesso</p>
-</div>
-
-<!-- Container Centrale per la Caccia al Tesoro e Quiz -->
-<div class="treasure-hunt-container" id="treasureHuntContainer">
-    <h1 class="level-header" id="levelHeader">Caccia al Tesoro: Quiz su Ergo</h1>
-    <div class="quiz-container" id="quizContainer" style="display:none;">
-        <div id="scoreDisplay">Punteggio Corrente: 0</div>
-        <p id="questionText"></p>
-        <div id="answerOptions"></div>
+    <!-- Container Principale -->
+    <div class="container text-center">
+        <div class="treasure-hunt-container" id="treasureHuntContainer">
+            <h1 id="levelHeader">Caccia al Tesoro: Quiz su Ergo</h1>
+            <div class="progress">
+                <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+            </div>
+            <div id="quizContainer" style="display:none;">
+                <div id="scoreDisplay">Punteggio Corrente: 0</div>
+                <p id="questionText"></p>
+                <div id="answerOptions"></div>
+            </div>
+            <button id="connectWalletButton" class="btn-quiz">Connetti Wallet</button>
+            <button id="startButton" class="btn-quiz">Inizia il Quiz</button>
+            <p id="resultText" style="margin-top: 20px;"></p>
+        </div>
     </div>
-    <button id="startButton" class="btn-next-level">Inizia il Quiz</button>
-    <p id="resultText" style="margin-top: 20px;"></p>
-</div>
 
-<!-- Footer -->
-<footer class="p-3 bg-dark text-white text-center">
-    <p>© 2023 Powered By Ergo Platform Italian Ecosystem</p>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <p>© 2023 Powered By Ergo Platform Italian Ecosystem</p>
+    </footer>
 
-<script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-    AOS.init();
-</script>
-<script src="quiz.js"></script> <!-- Link to the JavaScript file containing the quiz code -->
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Wallet Connection Logic
+        async function connectWallet() {
+            if (typeof ergoConnector === "undefined" || typeof ergoConnector.nautilus === "undefined") {
+                alert("Wallet non trovato. Assicurati di avere Nautilus o un altro wallet compatibile con Ergo.");
+                return;
+            }
+
+            try {
+                await ergoConnector.nautilus.connect();
+                const address = await ergo.get_change_address();
+                document.getElementById("walletStatusText").textContent = `Connesso: ${address}`;
+                document.getElementById("walletStatus").classList.add("connected");
+            } catch (error) {
+                alert("Errore durante la connessione al wallet.");
+            }
+        }
+
+        document.getElementById("connectWalletButton").addEventListener("click", connectWallet);
+
+        // Quiz Progress Logic
+        function updateProgressBar() {
+            const progress = (currentQuestionIndex / quiz_questions.length) * 100;
+            document.getElementById("progressBar").style.width = progress + "%";
+        }
+    </script>
 </body>
 </html>
+
