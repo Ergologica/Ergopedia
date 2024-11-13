@@ -106,7 +106,7 @@ async function connectWallet() {
         const address = await ergo.get_change_address(); // Get the primary address
 
         walletConnected = true;
-        document.getElementById("walletStatus").textContent = `Wallet connesso: ${address}`;
+        document.getElementById("walletStatusText").textContent = `Wallet connesso: ${address}`;
         console.log("Wallet connesso con successo:", address);
     } catch (error) {
         console.error("Errore di connessione al wallet:", error);
@@ -133,6 +133,8 @@ function startQuiz() {
     const quizContainer = document.getElementById("quizContainer");
     if (quizContainer) {
         quizContainer.style.display = "block";
+    } else {
+        console.error("Elemento quizContainer non trovato.");
     }
 
     showNextQuestion();
@@ -228,4 +230,3 @@ function updateScoreDisplay() {
         scoreDisplay.textContent = `Punteggio Corrente: ${correctAnswers}`;
     }
 }
-
