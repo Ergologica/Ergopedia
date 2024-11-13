@@ -11,7 +11,157 @@ document.addEventListener("DOMContentLoaded", function() {
         connectWalletButton.addEventListener("click", connectWallet);
     }
 
-    if (themeToggle) {
+    if (themeToggle) {document.addEventListener("DOMContentLoaded", function () {
+    AOS.init();
+
+    // Gestione Navbar Mobile
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    navbarToggler.addEventListener('click', () => {
+        navbarCollapse.classList.toggle('show');
+    });
+
+    // Gestione Toggle Tema
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', toggleTheme);
+
+    // Apply stored theme preference
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+        document.body.classList.add(storedTheme);
+    }
+
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        const currentTheme = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+        localStorage.setItem('theme', currentTheme);
+    }
+
+    let walletConnected = false;
+    let correctAnswers = 0;
+    let currentQuestionIndex = 0;
+    const quizQuestions = {
+        "layer": {
+            question: "Ergo è una blockchain di layer 1, layer 2 o layer 3?",
+            correct: "layer 1",
+            answers: ["layer 1", "layer 2", "layer 3"]
+        },
+        "consensus_type": {
+            question: "Quale meccanismo di consenso utilizza Ergo?",
+            correct: "proof of work",
+            answers: ["proof of work", "proof of stake"]
+        },
+        // ... altre domande
+    };
+    let questionKeys = Object.keys(quizQuestions);
+
+    // Wallet Connection Logic
+    async function connectWallet() {
+        if (typeof ergoConnector === "undefined" || typeof ergoConnector.nautilus === "undefined") {
+            alert("Wallet non trovato. Assicurati di avere Nautilus o un altro wallet compatibile con Ergo.");
+            return;
+        }
+        try {
+            await ergoConnector.nautilus.connect();
+            const address = await ergo.get_change_address();
+            document.getElementById("walletStatusText").textContent = `Connesso: ${address}`;
+            document.getElementById("walletStatus").classList.add("connected");
+            walletConnected = true;
+        } catch (error) {
+            alert("Errore durante la connessione al wallet.");
+        }
+    }
+    document.getElementById("connectWalletButton").addEventListener("click", connectWallet);
+
+    // Start Quiz
+    function startQuiz() {
+        if (!walletConnected) {
+            alert("Per iniziare il quiz, collega prima il tuo wallet Ergo.");
+            return;
+        }
+        currentQuestionIndex = 0;
+        correctAnswers = 0;
+        shuffleQuestions();
+        updateScoreDisplay();
+        document.getElementById("startButton").style.display = "none";
+        document.getElementById("quizContainer").style.display = "block";
+        showNextQuestion();
+    }
+    document.getElementById("startButton").addEventListener("click", startQuiz);
+
+    function shuffleQuestions() {
+        questionKeys = questionKeys.sort(() => Math.random() - 0.5);
+    }
+
+    function showNextQuestion() {
+        if (currentQuestionIndex < questionKeys.length) {
+            const questionKey = questionKeys[currentQuestionIndex];
+            runQuiz(questionKey);
+            currentQuestionIndex++;
+        } else {
+            showResult();
+        }
+    }
+
+    function runQuiz(questionKey) {
+        const questionData = quizQuestions[questionKey];
+        document.getElementById("questionText").textContent = questionData.question;
+        const answerOptionsElement = document.getElementById("answerOptions");
+        answerOptionsElement.innerHTML = questionData.answers.map(answer => `<button class="answerOption btn btn-outline-primary">${answer}</button>`).join(" ");
+        const answerButtons = document.querySelectorAll(".answerOption");
+        answerButtons.forEach(button => {
+            button.addEventListener("click", () => checkAnswer(questionKey, button.textContent));
+        });
+    }
+
+    function checkAnswer(questionKey, userAnswer) {
+        const questionData = quizQuestions[questionKey];
+        if (questionData.correct.toLowerCase() === userAnswer.toLowerCase()) {
+            correctAnswers++;
+            updateScoreDisplay();
+            showFeedback(true);
+            setTimeout(showNextQuestion, 1000);
+        } else {
+            showFeedback(false);
+            setTimeout(restartQuiz, 1000);
+        }
+    }
+
+    function showResult() {
+        document.getElementById("quizContainer").style.display = "none";
+        document.getElementById("resultText").textContent = `Il tuo punteggio finale è: ${correctAnswers} su ${questionKeys.length}`;
+        updateLeaderboard();
+        document.getElementById("startButton").style.display = "block";
+    }
+
+    function showFeedback(isCorrect) {
+        const feedbackElement = document.getElementById("feedback");
+        feedbackElement.textContent = isCorrect ? "Bravo! Andiamo avanti..." : "Peccato, sei davvero un ergonauta? Riprova.";
+        feedbackElement.style.color = isCorrect ? "#28a745" : "#dc3545";
+        feedbackElement.style.display = "block";
+        setTimeout(() => feedbackElement.style.display = "none", 1000);
+    }
+
+    function restartQuiz() {
+        alert("Risposta errata. Il quiz verrà riavviato.");
+        startQuiz();
+    }
+
+    function updateScoreDisplay() {
+        document.getElementById("scoreDisplay").textContent = `Punteggio Corrente: ${correctAnswers}`;
+    }
+
+    function updateLeaderboard() {
+        const leaderboardList = document.getElementById("leaderboardList");
+        const playerScore = { name: "Giocatore", score: correctAnswers };
+        let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+        leaderboard.push(playerScore);
+        leaderboard.sort((a, b) => b.score - a.score);
+        localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+        leaderboardList.innerHTML = leaderboard.map(player => `<li>${player.name} - ${player.score} punti</li>`).join("");
+    }
+});
+
         themeToggle.addEventListener("click", toggleTheme);
     }
 
