@@ -7,6 +7,7 @@
     <title>Ergopedia - Caccia al Tesoro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet"/>
     <style>
         /* Stili di base */
         body {
@@ -219,10 +220,7 @@
     <div class="leaderboard" id="leaderboard">
         <h4>Leaderboard</h4>
         <ul id="leaderboardList" class="list-unstyled">
-            <li>1. Mario Rossi - 100 punti</li>
-            <li>2. Anna Bianchi - 95 punti</li>
-            <li>3. Luca Verdi - 90 punti</li>
-            <!-- Altri punteggi verranno inseriti qui dinamicamente -->
+            <!-- Punteggi giocatori verranno inseriti dinamicamente qui -->
         </ul>
     </div>
 
@@ -250,177 +248,6 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init();
-
-        // Gestione Navbar Mobile
-        const navbarToggler = document.querySelector('.navbar-toggler');
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        navbarToggler.addEventListener('click', () => {
-            navbarCollapse.classList.toggle('show');
-        });
-
-        // Gestione Toggle Tema
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', toggleTheme);
-
-        // Apply stored theme preference
-        const storedTheme = localStorage.getItem('theme');
-        if (storedTheme) {
-            document.body.classList.add(storedTheme);
-        }
-
-        // Toggle Theme Function
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-            const currentTheme = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
-            localStorage.setItem('theme', currentTheme);
-        }
-
-        // Wallet Connection Logic
-        async function connectWallet() {
-            if (typeof ergoConnector === "undefined" || typeof ergoConnector.nautilus === "undefined") {
-                alert("Wallet non trovato. Assicurati di avere Nautilus o un altro wallet compatibile con Ergo.");
-                console.error("Ergo wallet or ergoConnector not found in environment");
-                return;
-            }
-
-            try {
-                await ergoConnector.nautilus.connect();
-                const address = await ergo.get_change_address();
-                document.getElementById("walletStatusText").textContent = `Connesso: ${address}`;
-                document.getElementById("walletStatus").classList.add("connected");
-                console.log("Wallet connesso con successo:", address);
-            } catch (error) {
-                console.error("Errore di connessione al wallet:", error);
-                alert("Errore durante la connessione al wallet.");
-            }
-        }
-
-        document.getElementById("connectWalletButton").addEventListener("click", connectWallet);
-
-        // Quiz Logic
-        let currentQuestionIndex = 0;
-        let correctAnswers = 0;
-        let questionKeys = Object.keys(quiz_questions);
-
-        document.getElementById("startButton").addEventListener("click", startQuiz);
-
-        function startQuiz() {
-            if (!walletConnected) {
-                alert("Per iniziare il quiz, collega prima il tuo wallet Ergo.");
-                return;
-            }
-
-            currentQuestionIndex = 0;
-            correctAnswers = 0;
-            shuffleQuestions();
-            updateScoreDisplay();
-
-            const startButton = document.getElementById("startButton");
-            startButton.style.display = "none";
-
-            const quizContainer = document.getElementById("quizContainer");
-            quizContainer.style.display = "block";
-
-            showNextQuestion();
-        }
-
-        function shuffleQuestions() {
-            questionKeys = questionKeys.sort(() => Math.random() - 0.5);
-        }
-
-        function showNextQuestion() {
-            if (currentQuestionIndex < questionKeys.length) {
-                const questionKey = questionKeys[currentQuestionIndex];
-                runQuiz(questionKey);
-                currentQuestionIndex++;
-            } else {
-                showResult();
-            }
-        }
-
-        function runQuiz(questionKey) {
-            const questionData = quiz_questions[questionKey];
-            const questionTextElement = document.getElementById("questionText");
-            const answerOptionsElement = document.getElementById("answerOptions");
-
-            if (questionTextElement && answerOptionsElement) {
-                questionTextElement.textContent = questionData.question;
-                answerOptionsElement.innerHTML = questionData.answers.map(answer => `<button class="answerOption btn btn-outline-primary">${answer}</button>`).join(" ");
-
-                const answerButtons = document.querySelectorAll(".answerOption");
-                answerButtons.forEach(button => {
-                    button.addEventListener("click", function () {
-                        checkAnswer(questionKey, button.textContent);
-                    });
-                });
-            } else {
-                console.error("Elementi del quiz non trovati.");
-            }
-        }
-
-        function checkAnswer(questionKey, userAnswer) {
-            const questionData = quiz_questions[questionKey];
-            const correctAnswer = questionData.correct;
-
-            if (correctAnswer.toLowerCase() === userAnswer.toLowerCase()) {
-                correctAnswers++;
-                updateScoreDisplay();
-                showFeedback(true);
-                showNextQuestion();
-            } else {
-                showFeedback(false);
-                restartQuiz();
-            }
-        }
-
-        function showResult() {
-            const quizContainer = document.getElementById("quizContainer");
-            quizContainer.style.display = "none";
-
-            const resultText = document.getElementById("resultText");
-            resultText.textContent = `Il tuo punteggio finale è: ${correctAnswers} su ${questionKeys.length}`;
-
-            const startButton = document.getElementById("startButton");
-            startButton.style.display = "block";
-        }
-
-        function showFeedback(isCorrect) {
-            const feedbackElement = document.getElementById("feedback");
-            const feedbackMessage = isCorrect ? "Bravo! Andiamo avanti..." : "Peccato, sei davvero un ergonauta?\nRiprova";
-            const feedbackColor = isCorrect ? "#28a745" : "#dc3545";
-
-            feedbackElement.textContent = feedbackMessage;
-            feedbackElement.style.color = feedbackColor;
-            feedbackElement.style.display = "block";
-        }
-
-        function updateScoreDisplay() {
-            const scoreDisplay = document.getElementById("scoreDisplay");
-            scoreDisplay.textContent = `Punteggio Corrente: ${correctAnswers}`;
-        }
-
-        // Quiz Questions
-        const quiz_questions = {
-            "layer": {
-                question: "Ergo è una blockchain di layer 1, layer 2 o layer 3?",
-                correct: "layer 1",
-                answers: ["layer 1", "layer 2", "layer 3"]
-            },
-            "consensus_type": {
-                question: "Quale meccanismo di consenso utilizza Ergo?",
-                correct: "proof of work",
-                answers: ["proof of work", "proof of stake"]
-            },
-            "economics": {
-                question: "Quale principio economico è importante nel design di Ergo?",
-                correct: "domanda e offerta",
-                answers: ["domanda e offerta", "inflazione", "costo opportunità"]
-            }
-            // ... altre domande
-        };
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
-
