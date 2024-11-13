@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const startButton = document.getElementById("startButton");
     const connectWalletButton = document.getElementById("connectWalletButton"); // New wallet connect button
+    const themeToggle = document.getElementById("themeToggle"); // Theme toggle button
 
     if (startButton) {
         startButton.addEventListener("click", startQuiz);
@@ -8,6 +9,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (connectWalletButton) {
         connectWalletButton.addEventListener("click", connectWallet);
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener("click", toggleTheme);
+    }
+
+    // Apply stored theme preference
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+        document.body.classList.add(storedTheme);
     }
 
     updateScoreDisplay(); // Initialize score display
@@ -107,6 +118,7 @@ async function connectWallet() {
 
         walletConnected = true;
         document.getElementById("walletStatusText").textContent = `Wallet connesso: ${address}`;
+        document.getElementById("walletStatus").classList.add("connected");
         console.log("Wallet connesso con successo:", address);
     } catch (error) {
         console.error("Errore di connessione al wallet:", error);
@@ -163,7 +175,7 @@ function runQuiz(questionKey) {
     }
 
     const questionText = questionData.question;
-    const answerOptions = questionData.answers.map(answer => `<button class="answerOption">${answer}</button>`).join("");
+    const answerOptions = questionData.answers.map(answer => `<button class="answerOption btn btn-outline-primary">${answer}</button>`).join(" ");
 
     const questionTextElement = document.getElementById("questionText");
     const answerOptionsElement = document.getElementById("answerOptions");
@@ -217,11 +229,23 @@ function showResult() {
     } else {
         console.error("Elemento di testo del risultato non trovato.");
     }
+
+    const startButton = document.getElementById("startButton");
+    if (startButton) {
+        startButton.style.display = "block";
+    }
 }
 
 function showFeedback(isCorrect) {
-    const feedback = isCorrect ? "Bravo! Andiamo avanti..." : "Peccato, sei davvero un ergonauta?\nRiprova";
-    alert(feedback);
+    const feedbackMessage = isCorrect ? "Bravo! Andiamo avanti..." : "Peccato, sei davvero un ergonauta?\nRiprova";
+    alert(feedbackMessage);
+    const feedbackColor = isCorrect ? "#28a745" : "#dc3545";
+    const feedbackElement = document.getElementById("feedback");
+    if (feedbackElement) {
+        feedbackElement.textContent = feedbackMessage;
+        feedbackElement.style.color = feedbackColor;
+        feedbackElement.style.display = "block";
+    }
 }
 
 function updateScoreDisplay() {
@@ -230,3 +254,10 @@ function updateScoreDisplay() {
         scoreDisplay.textContent = `Punteggio Corrente: ${correctAnswers}`;
     }
 }
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const currentTheme = document.body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+    localStorage.setItem('theme', currentTheme);
+}
+
