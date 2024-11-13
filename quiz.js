@@ -3,69 +3,69 @@ document.addEventListener("DOMContentLoaded", function() {
     if (startButton) {
         startButton.addEventListener("click", startQuiz);
     }
-    updateScoreDisplay(); // Initialize score display
+    updateScoreDisplay(); // Inizializza la visualizzazione del punteggio
 });
 
 const quiz_questions = {
     "layer": {
-        question: "Is Ergo a layer 1, layer 2, or layer 3 blockchain?",
+        question: "Ergo è una blockchain di layer 1, layer 2 o layer 3?",
         correct: "layer 1",
         answers: ["layer 1", "layer 2", "layer 3"]
     },
     "consensus_type": {
-        question: "What consensus mechanism does Ergo use?",
+        question: "Quale meccanismo di consenso utilizza Ergo?",
         correct: "proof of work",
         answers: ["proof of work", "proof of stake"]
     },
     "economics": {
-        question: "Which economic principle is important in Ergo's design?",
-        correct: "supply and demand",
-        answers: ["supply and demand", "inflation", "opportunity cost"]
+        question: "Quale principio economico è importante nel design di Ergo?",
+        correct: "domanda e offerta",
+        answers: ["domanda e offerta", "inflazione", "costo opportunità"]
     },
     "ergo_tech": {
-        question: "Which technology helps ensure privacy in Ergo transactions?",
-        correct: "Sigma protocols",
-        answers: ["Sigma protocols", "EUTXO model", "Oracle pools"]
+        question: "Quale tecnologia aiuta a garantire la privacy nelle transazioni di Ergo?",
+        correct: "protocolli Sigma",
+        answers: ["protocolli Sigma", "modello EUTXO", "pool di oracoli"]
     },
     "cryptography": {
-        question: "What is a cryptographic hash function used for?",
-        correct: "Securing data integrity",
-        answers: ["Generating random numbers", "Performing arithmetic operations", "Securing data integrity"]
+        question: "Per cosa viene utilizzata una funzione di hash crittografica?",
+        correct: "Garantire l'integrità dei dati",
+        answers: ["Generare numeri casuali", "Eseguire operazioni aritmetiche", "Garantire l'integrità dei dati"]
     },
     "smart_contracts": {
-        question: "What are smart contracts in Ergo?",
-        correct: "Self-executing agreements with the terms of the contract directly written into code.",
-        answers: ["Digital signatures", "Decentralized identifiers", "Self-executing agreements with the terms of the contract directly written into code."]
+        question: "Cosa sono gli smart contract su Ergo?",
+        correct: "Accordi auto-esecutivi con i termini del contratto scritti direttamente nel codice.",
+        answers: ["Firme digitali", "Identificatori decentralizzati", "Accordi auto-esecutivi con i termini del contratto scritti direttamente nel codice."]
     },
     "utxo_model": {
-        question: "What is the UTXO model in blockchain?",
-        correct: "Unspent Transaction Output model, where each transaction input references a previous unspent output.",
-        answers: ["Universal Token Exchange Operation", "Unspent Transaction Output model, where each transaction input references a previous unspent output.", "Underlying Token Execution Oracle"]
+        question: "Cos'è il modello UTXO nella blockchain?",
+        correct: "Modello di output di transazione non speso, dove ogni input di transazione fa riferimento a un output non speso precedente.",
+        answers: ["Operazione Universale di Scambio Token", "Modello di output di transazione non speso, dove ogni input di transazione fa riferimento a un output non speso precedente.", "Oracle di esecuzione del token sottostante"]
     },
     "blockchain_benefits": {
-        question: "What is a key benefit of blockchain technology?",
-        correct: "Immutability and transparency of data",
-        answers: ["Centralized control of data", "Limited scalability", "Immutability and transparency of data"]
+        question: "Qual è un vantaggio chiave della tecnologia blockchain?",
+        correct: "Immutabilità e trasparenza dei dati",
+        answers: ["Controllo centralizzato dei dati", "Scalabilità limitata", "Immutabilità e trasparenza dei dati"]
     },
     "token_standards": {
-        question: "Which standard defines how tokens are created and managed on the Ergo blockchain?",
-        correct: "Ergo Improvement Proposals (EIPs)",
-        answers: ["Bitcoin Improvement Proposals (BIPs)", "Ergo Improvement Proposals (EIPs)", "Ethereum Request for Comments (ERCs)"]
+        question: "Quale standard definisce come i token vengono creati e gestiti sulla blockchain di Ergo?",
+        correct: "Proposte di miglioramento di Ergo (EIPs)",
+        answers: ["Proposte di miglioramento di Bitcoin (BIPs)", "Proposte di miglioramento di Ergo (EIPs)", "Ethereum Request for Comments (ERCs)"]
     },
     "privacy_techniques": {
-        question: "Which privacy technique is used in Ergo to obfuscate transaction inputs and outputs?",
-        correct: "Ring signatures",
-        answers: ["Proof of stake", "Multi-signature wallets", "Ring signatures"]
+        question: "Quale tecnica di privacy viene utilizzata su Ergo per offuscare gli input e gli output delle transazioni?",
+        correct: "Firme ad anello",
+        answers: ["Proof of stake", "Wallet multi-firma", "Firme ad anello"]
     },
     "oracle_pools": {
-        question: "What is the purpose of oracle pools in the Ergo ecosystem?",
-        correct: "Providing off-chain data to smart contracts",
-        answers: ["Mining new Ergo coins", "Decentralized identity management", "Providing off-chain data to smart contracts"]
+        question: "Qual è lo scopo dei pool di oracoli nell'ecosistema di Ergo?",
+        correct: "Fornire dati off-chain agli smart contract",
+        answers: ["Minerare nuovi coin di Ergo", "Gestione decentralizzata dell'identità", "Fornire dati off-chain agli smart contract"]
     },
     "defi_applications": {
-        question: "Which type of applications can be built on Ergo's decentralized finance (DeFi) platform?",
-        correct: "Decentralized exchanges, lending platforms, and more",
-        answers: ["Social media platforms", "Gaming platforms", "Decentralized exchanges, lending platforms, and more"]
+        question: "Quali tipi di applicazioni possono essere costruite sulla piattaforma di finanza decentralizzata (DeFi) di Ergo?",
+        correct: "Exchange decentralizzati, piattaforme di prestito e altro",
+        answers: ["Piattaforme di social media", "Piattaforme di gioco", "Exchange decentralizzati, piattaforme di prestito e altro"]
     }
 };
 
@@ -75,9 +75,9 @@ let correctAnswers = 0;
 
 function startQuiz() {
     currentQuestionIndex = 0;
-    correctAnswers = 0; // Reset score on start
-    shuffleQuestions(); // Shuffle question order
-    updateScoreDisplay(); // Update the score display to show 0
+    correctAnswers = 0; // Reimposta il punteggio all'inizio
+    shuffleQuestions(); // Mescola l'ordine delle domande
+    updateScoreDisplay(); // Aggiorna la visualizzazione del punteggio a 0
 
     const startButton = document.getElementById("startButton");
     if (startButton) {
@@ -92,7 +92,7 @@ function startQuiz() {
     showNextQuestion();
 }
 
-// Function to shuffle the questions randomly
+// Funzione per mescolare le domande in modo casuale
 function shuffleQuestions() {
     questionKeys = questionKeys.sort(() => Math.random() - 0.5);
 }
@@ -110,7 +110,7 @@ function showNextQuestion() {
 function runQuiz(questionKey) {
     const questionData = quiz_questions[questionKey];
     if (!questionData) {
-        console.error(`Question data not found for questionKey: ${questionKey}`);
+        console.error(`Dati della domanda non trovati per questionKey: ${questionKey}`);
         return;
     }
 
@@ -131,7 +131,7 @@ function runQuiz(questionKey) {
             });
         });
     } else {
-        console.error("Quiz elements not found.");
+        console.error("Elementi del quiz non trovati.");
     }
 }
 
@@ -141,7 +141,7 @@ function checkAnswer(questionKey, userAnswer) {
 
     if (correctAnswer.toLowerCase() === userAnswer.toLowerCase()) {
         correctAnswers++;
-        updateScoreDisplay(); // Update score display for a correct answer
+        updateScoreDisplay(); // Aggiorna la visualizzazione del punteggio per una risposta corretta
         showFeedback(true);
         showNextQuestion();
     } else {
@@ -151,10 +151,10 @@ function checkAnswer(questionKey, userAnswer) {
 }
 
 function restartQuiz() {
-    alert("Incorrect answer. The quiz will restart.");
-    correctAnswers = 0; // Reset score on restart
-    updateScoreDisplay(); // Update the score display to show 0
-    startQuiz(); // Reset the quiz
+    alert("Risposta errata. Il quiz verrà riavviato.");
+    correctAnswers = 0; // Reimposta il punteggio al riavvio
+    updateScoreDisplay(); // Aggiorna la visualizzazione del punteggio a 0
+    startQuiz(); // Riavvia il quiz
 }
 
 function showResult() {
@@ -165,21 +165,22 @@ function showResult() {
 
     const resultText = document.getElementById("resultText");
     if (resultText) {
-        resultText.textContent = `Your final score is: ${correctAnswers} out of ${questionKeys.length}`;
+        resultText.textContent = `Il tuo punteggio finale è: ${correctAnswers} su ${questionKeys.length}`;
     } else {
-        console.error("Result text element not found.");
+        console.error("Elemento di testo del risultato non trovato.");
     }
 }
 
 function showFeedback(isCorrect) {
-    const feedback = isCorrect ? "Good job! Let's go..." : "So sorry, are you even an ergonaut?\nTry again";
+    const feedback = isCorrect ? "Bravo! Andiamo avanti..." : "Peccato, sei davvero un ergonauta?\nRiprova";
     alert(feedback);
 }
 
 function updateScoreDisplay() {
     const scoreDisplay = document.getElementById("scoreDisplay");
     if (scoreDisplay) {
-        scoreDisplay.textContent = `Current Score: ${correctAnswers}`;
+        scoreDisplay.textContent = `Punteggio Corrente: ${correctAnswers}`;
     }
 }
+
 
