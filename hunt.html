@@ -76,7 +76,7 @@
     .answerOption:hover {
       background-color: #f1f1f1;
     }
-  </style>
+</style>
 </head>
 <body class="light-mode">
 <!-- Navbar -->
@@ -90,6 +90,12 @@
         <li><a href="manifesto.html" style="text-decoration: none; color: #333;">Manifesto</a></li>
     </ul>
 </nav>
+
+<!-- Wallet Connect Section -->
+<div class="container text-center my-4">
+    <button id="connectWalletButton" class="btn btn-primary">Connetti Wallet</button>
+    <p id="walletStatus" style="margin-top: 10px;">Stato Wallet: Non Connesso</p>
+</div>
 
 <!-- Container Centrale per la Caccia al Tesoro e Quiz -->
 <div class="treasure-hunt-container" id="treasureHuntContainer">
@@ -116,4 +122,3 @@
 <script src="quiz.js"></script> <!-- Link to the JavaScript file containing the quiz code -->
 </body>
 </html>
-
