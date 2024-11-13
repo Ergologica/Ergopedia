@@ -228,3 +228,4 @@ function updateScoreDisplay() {
         scoreDisplay.textContent = `Punteggio Corrente: ${correctAnswers}`;
     }
 }
+
