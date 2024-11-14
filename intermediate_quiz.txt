@@ -1,0 +1,13 @@
+{
+    "oracle_pools": {
+        "question": "Qual è la funzione principale dei pool di oracoli su Ergo?",
+        "correct": "Fornire dati off-chain affidabili agli smart contract",
+        "answers": ["Validare transazioni", "Fornire dati off-chain affidabili agli smart contract", "Gestire l'identità degli utenti"]
+    },
+    "token_standards": {
+        "question": "Quale standard definisce come i token vengono creati e gestiti sulla blockchain di Ergo?",
+        "correct": "Proposte di miglioramento di Ergo (EIPs)",
+        "answers": ["Proposte di miglioramento di Bitcoin (BIPs)", "Proposte di miglioramento di Ergo (EIPs)", "Ethereum Request for Comments (ERCs)"]
+    },
+    ...
+}

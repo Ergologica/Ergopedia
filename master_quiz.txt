@@ -1,0 +1,17 @@
+{
+    "economics_design": {
+        "question": "Qual è l'importanza del design economico di Ergo per l'ecosistema?",
+        "correct": "Sostenere la sicurezza e incentivare la partecipazione",
+        "answers": ["Solo per limitare l'inflazione", "Nessun impatto", "Sostenere la sicurezza e incentivare la partecipazione"]
+    },
+    "blockchain_evolution": {
+        "question": "In che modo Ergo si distingue rispetto ad altre blockchain di layer 1?",
+        "correct": "Ha una forte enfasi sulla privacy e scalabilità",
+        "answers": ["Utilizza solo staking", "Non differisce in alcun modo", "Ha una forte enfasi sulla privacy e scalabilità"]
+    },
+    "scalability_features": {
+        "question": "Quali caratteristiche aiutano Ergo a migliorare la scalabilità?",
+        "correct": "Modello eUTXO e soluzioni off-chain",
+        "answers": ["Modello UTXO tradizionale", "Soluzioni on-chain solamente", "Modello eUTXO e soluzioni off-chain"]
+    }
+}

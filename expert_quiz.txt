@@ -1,0 +1,17 @@
+{
+    "eutxo_model": {
+        "question": "Come differisce il modello eUTXO di Ergo dal modello UTXO tradizionale?",
+        "correct": "Supporta smart contract più complessi",
+        "answers": ["Non utilizza output di transazione", "Supporta smart contract più complessi", "È meno sicuro"]
+    },
+    "proof_of_no_stake": {
+        "question": "Ergo utilizza il Proof of Stake?",
+        "correct": "No, utilizza il Proof of Work",
+        "answers": ["Sì, utilizza Proof of Stake", "No, utilizza il Proof of Work", "Utilizza un meccanismo misto"]
+    },
+    "use_cases": {
+        "question": "Quali sono i principali casi d'uso per la blockchain di Ergo?",
+        "correct": "Smart contract, DeFi, privacy delle transazioni",
+        "answers": ["Soltanto mining", "Social media decentralizzati", "Smart contract, DeFi, privacy delle transazioni"]
+    }
+}

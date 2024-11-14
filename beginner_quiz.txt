@@ -1,0 +1,52 @@
+{
+    "layer": {
+        "question": "Ergo è una blockchain di layer 1, layer 2 o layer 3?",
+        "correct": "layer 1",
+        "answers": ["layer 1", "layer 2", "layer 3"]
+    },
+    "consensus_type": {
+        "question": "Quale meccanismo di consenso utilizza Ergo?",
+        "correct": "proof of work",
+        "answers": ["proof of work", "proof of stake"]
+    },
+    "founding_year": {
+        "question": "In quale anno è stata lanciata la mainnet di Ergo?",
+        "correct": "2019",
+        "answers": ["2017", "2018", "2019"]
+    },
+    "block_time": {
+        "question": "Qual è il tempo medio di generazione di un blocco su Ergo?",
+        "correct": "2 minuti",
+        "answers": ["1 minuto", "2 minuti", "10 minuti"]
+    },
+    "developer": {
+        "question": "Chi è il fondatore principale di Ergo?",
+        "correct": "Alexander Chepurnoy",
+        "answers": ["Vitalik Buterin", "Charles Hoskinson", "Alexander Chepurnoy"]
+    },
+    "smart_contracts": {
+        "question": "Cosa sono gli smart contract su Ergo?",
+        "correct": "Accordi auto-esecutivi con i termini del contratto scritti direttamente nel codice.",
+        "answers": ["Firme digitali", "Identificatori decentralizzati", "Accordi auto-esecutivi con i termini del contratto scritti direttamente nel codice."]
+    },
+    "utxo_model": {
+        "question": "Cos'è il modello UTXO nella blockchain?",
+        "correct": "Modello di output di transazione non speso, dove ogni input di transazione fa riferimento a un output non speso precedente.",
+        "answers": ["Operazione Universale di Scambio Token", "Modello di output di transazione non speso, dove ogni input di transazione fa riferimento a un output non speso precedente.", "Oracle di esecuzione del token sottostante"]
+    },
+    "economics": {
+        "question": "Quale principio economico è importante nel design di Ergo?",
+        "correct": "domanda e offerta",
+        "answers": ["domanda e offerta", "inflazione", "costo opportunità"]
+    },
+    "privacy_techniques": {
+        "question": "Quale tecnica di privacy viene utilizzata su Ergo per offuscare gli input e gli output delle transazioni?",
+        "correct": "Firme ad anello",
+        "answers": ["Proof of stake", "Wallet multi-firma", "Firme ad anello"]
+    },
+    "defi_applications": {
+        "question": "Quali tipi di applicazioni possono essere costruite sulla piattaforma di finanza decentralizzata (DeFi) di Ergo?",
+        "correct": "Exchange decentralizzati, piattaforme di prestito e altro",
+        "answers": ["Piattaforme di social media", "Piattaforme di gioco", "Exchange decentralizzati, piattaforme di prestito e altro"]
+    }
+}

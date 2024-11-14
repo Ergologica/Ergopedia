@@ -1,0 +1,22 @@
+{
+    "autolykos": {
+        "question": "Qual è il nome dell'algoritmo di mining utilizzato da Ergo?",
+        "correct": "Autolykos",
+        "answers": ["SHA-256", "Autolykos", "Ethash"]
+    },
+    "storage_rent": {
+        "question": "Cos'è il 'storage rent' nel contesto di Ergo?",
+        "correct": "Una tassa per mantenere i dati sulla blockchain",
+        "answers": ["Una ricompensa per i miner", "Una tassa per mantenere i dati sulla blockchain", "Un costo per creare smart contract"]
+    },
+    "ergo_script": {
+        "question": "Quale linguaggio di scripting utilizza Ergo per i suoi smart contract?",
+        "correct": "ErgoScript",
+        "answers": ["Solidity", "ErgoScript", "Vyper"]
+    },
+    "nipo_pows": {
+        "question": "Cosa sono le NiPoPoWs in Ergo?",
+        "correct": "Proofs of Work non interattive e succinte",
+        "answers": ["Nuovo tipo di transazione", "Algoritmo di consenso", "Proofs of Work non interattive e succinte"]
+    }
+}
